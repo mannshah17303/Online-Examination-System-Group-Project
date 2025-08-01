@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=], initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div id="disableWholeScreen"></div>
+    <dialog id="loaderDialog">
+      <div id="loader"></div>
+    </dialog>
+    <div class="main">
+      <div class="container">
+        <form id="myform" class="form" method="post">
+          <label for="email">Email: </label>
+          <input type="email" name="email" required />
+          <!-- <p style="display: none; font-size: 12px; text-align: center;" id="msg">Reset Link sent to the entered Email ID.</p> -->
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="/javascript/auth/forgotPassEmail.js"></script>
+  <script src="/javascript/loader/loader.js"></script>
+</html>

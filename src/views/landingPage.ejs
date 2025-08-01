@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Examination Portal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #304673;
+        --secondary-color: #bbbe64;
+        --dark-color: #2e3551;
+        --light-color: #f8f9fc;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        color: #444;
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--dark-color);
+        position: relative;
+        margin: 0 10px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--dark-color) 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .card {
+        border: none;
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        padding: 10px 25px;
+        font-weight: 600;
+        border-radius: 30px;
+      }
+
+      .btn-outline-light {
+        border-radius: 30px;
+        padding: 10px 25px;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: #304673;
+        border-color: #304673;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        margin-bottom: 60px;
+        position: relative;
+        font-weight: 700;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 3px;
+        background-color: var(--primary-color);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .auth-buttons .btn {
+        margin-left: 10px;
+      }
+
+      .testimonial-card {
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: "\201C";
+        font-size: 5rem;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        opacity: 0.2;
+        color: var(--primary-color);
+        font-family: Georgia, serif;
+      }
+
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-links h5 {
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin-right: 15px;
+        transition: transform 0.3s;
+        display: inline-block;
+      }
+
+      .social-icons a:hover {
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s, transform 0.5s;
+      }
+
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Login/Signup Modal Styles */
+      .modal-content {
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .modal-header {
+        border-bottom: none;
+        padding: 25px 25px 0;
+      }
+
+      .modal-body {
+        padding: 25px;
+      }
+
+      .modal-footer {
+        border-top: none;
+        padding: 0 25px 25px;
+      }
+
+      .form-control {
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .hero-image {
+        width: 100%;
+        transition: all 0.5s ease;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border: 8px solid white;
+      }
+
+      .hero-image:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero-floating-badge {
+        top: 20px;
+        right: -15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+        z-index: 2;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .btn-primary {
+        background-color: #bbbe64;
+        border: none;
+        /* box-shadow: 0 5px 15px #bbbe64; */
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+
+        border: 2px solid #bbbe64;
+      }
+
+      .btn-outline-secondary {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-secondary:hover {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><i class="fas fa-laptop-code me-2"></i>Online Examination Portal</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#exam-types">Exams We Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+
+          <div class="auth-buttons">
+            <a href="/login" class="btn btn-outline-secondary">Login</a>
+            <a href="/signup" class="btn btn-primary">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center" id="home">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 fade-in">
+            <h1 class="display-4 fw-bold mb-4">
+              Transform Your Examination Process
+            </h1>
+            <p class="lead mb-4">
+              A comprehensive online examination platform that simplifies test
+              creation, administration, and evaluation with advanced security
+              features and real-time analytics.
+            </p>
+            <div class="mt-5">
+              <a href="#features" class="btn btn-primary me-3"
+                >Explore Features</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block fade-in">
+            <div class="position-relative">
+              <img
+                src="/images/hero.jpeg"
+                alt="Online Examination System"
+                class="img-fluid rounded-lg shadow-lg hero-image"
+                style="
+                  border-radius: 20px;
+                  transform: perspective(1000px) rotateY(-5deg);
+                  transition: transform 0.5s ease;
+                "
+                onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'"
+                onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg)'"
+              />
+              <!-- <div class="hero-image-overlay"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">About Online Examination Portal</h2>
+          <p class="lead text-muted">
+            Revolutionizing assessment through technology
+          </p>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0 fade-in">
+            <img
+              src="/images/about.avif"
+              alt="About Online Examination Portal"
+              class="img-fluid rounded-3 shadow"
+            />
+          </div>
+          <div class="col-lg-6 fade-in">
+            <h3 class="mb-4">Our Story</h3>
+            <p>
+              Online Examination Portal was founded in 2025 with a mission to
+              transform the way educational institutions and organizations
+              conduct examinations. We recognized the challenges of traditional
+              examination methods and developed a comprehensive solution to
+              address them.
+            </p>
+
+            <p>
+              Our team comprises educational experts, assessment specialists,
+              and software engineers who are passionate about enhancing the
+              examination experience for all stakeholders - administrators,
+              educators, and students alike.
+            </p>
+
+            <h3 class="mb-4 mt-5">Our Mission</h3>
+            <p>
+              We're committed to providing a secure, efficient, and
+              user-friendly examination platform that promotes academic
+              integrity, reduces administrative burden, and delivers actionable
+              insights through advanced analytics.
+            </p>
+
+            <div class="mt-4">
+              <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Key Features</h2>
+          <p class="lead text-muted">
+            Comprehensive tools for the entire examination lifecycle
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="card-title">Advanced Security</h4>
+                <p class="card-text">
+                  Browser lockdown, and multiple authentication methods to
+                  ensure examination integrity.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-tasks"></i>
+                </div>
+                <h4 class="card-title">Question Bank</h4>
+                <p class="card-text">
+                  Create and manage diverse question types with a powerful
+                  question bank supporting randomization and difficulty levels.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h4 class="card-title">Real-time Analytics</h4>
+                <p class="card-text">
+                  Comprehensive dashboards with item analysis, performance
+                  metrics, and actionable insights for improvement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h4 class="card-title">Multi-device Support</h4>
+                <p class="card-text">
+                  Seamless experience across desktops, tablets, and smartphones
+                  with responsive design and offline capabilities.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4 class="card-title">Automated Grading</h4>
+                <p class="card-text">
+                  Instant scoring for objective questions and AI-assisted
+                  evaluation for subjective answers to save time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 text-center p-4">
+              <div class="card-body">
+                <div class="feature-icon">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <h4 class="card-title">Customization</h4>
+                <p class="card-text">
+                  Tailor the platform to your institution's branding and
+                  specific examination requirements with ease.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Types Section -->
+    <section id="exam-types" class="bg-light py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Exams We Support</h2>
+          <p class="lead text-muted">
+            Comprehensive solutions for a wide range of examination needs
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- JEE Exam -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-primary-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-graduation-cap text-primary fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">JEE (Main & Advanced)</h4>
+                </div>
+                <p class="card-text">
+                  Our platform simulates the exact JEE experience with adaptive
+                  difficulty levels and comprehensive analysis of performance
+                  across Physics, Chemistry, and Mathematics. Includes previous
+                  years' papers and personalized preparation paths.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">Engineering</span>
+                  <span class="badge bg-secondary me-2">Competitive</span>
+                  <span class="badge bg-info">National Level</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-primary"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- 10th & 12th Board Exams -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-success-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-book text-success fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">10th & 12th Boards</h4>
+                </div>
+                <p class="card-text">
+                  Comprehensive practice for CBSE, ICSE, and State Board
+                  examinations with subject-wise tests, chapter assessments, and
+                  full-length mock papers. Includes detailed solutions and
+                  performance tracking for consistent improvement.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-success me-2">School</span>
+                  <span class="badge bg-secondary me-2">Core Curriculum</span>
+                  <span class="badge bg-info">All Boards</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-success"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT Exam -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-danger-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-chart-line text-danger fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">CAT & MBA Entrance</h4>
+                </div>
+                <p class="card-text">
+                  Specialized preparation for CAT, XAT, SNAP, and other MBA
+                  entrance exams with focus on Quantitative Aptitude, Verbal
+                  Ability, Data Interpretation, and Logical Reasoning. Features
+                  timed sections and personalized analytics.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-danger me-2">Management</span>
+                  <span class="badge bg-secondary me-2">Competitive</span>
+                  <span class="badge bg-info">Aptitude-based</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-danger">Learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPSC & Government Exams -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-warning-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-landmark text-warning fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">UPSC & Govt Exams</h4>
+                </div>
+                <p class="card-text">
+                  Comprehensive preparation for Civil Services and other
+                  government recruitment exams with current affairs updates,
+                  extensive subject coverage, and realistic test environments.
+                  Includes interview preparation modules.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-warning text-dark me-2"
+                    >Civil Services</span
+                  >
+                  <span class="badge bg-secondary me-2">Government</span>
+                  <span class="badge bg-info">Multi-stage</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-warning"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- NEET & Medical -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-info-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-heartbeat text-info fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">NEET & Medical</h4>
+                </div>
+                <p class="card-text">
+                  Specialized platform for NEET and other medical entrance
+                  examinations with in-depth coverage of Biology, Physics, and
+                  Chemistry. Features high-quality diagrams, conceptual
+                  questions, and NCERT-aligned content.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-info me-2">Medical</span>
+                  <span class="badge bg-secondary me-2">Competitive</span>
+                  <span class="badge bg-primary">Life Sciences</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-info">Learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corporate Aptitude -->
+          <div class="col-md-4 fade-in">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div
+                    class="icon-box bg-dark-subtle rounded-circle me-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fas fa-briefcase text-dark fs-4"></i>
+                  </div>
+                  <h4 class="card-title mb-0">Corporate Aptitude</h4>
+                </div>
+                <p class="card-text">
+                  Comprehensive aptitude testing solutions for corporate
+                  recruitment processes, including reasoning, quantitative,
+                  verbal, and technical assessments. Features customizable test
+                  modules and detailed candidate evaluation reports.
+                </p>
+                <div class="mt-3">
+                  <span class="badge bg-dark me-2">Professional</span>
+                  <span class="badge bg-secondary me-2">Recruitment</span>
+                  <span class="badge bg-primary">Skill Assessment</span>
+                </div>
+              </div>
+              <div class="card-footer bg-transparent border-0 pt-0">
+                <a href="#" class="btn btn-sm btn-outline-dark">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <p class="lead">Don't see what you're looking for?</p>
+          <a href="#contact" class="btn btn-primary rounded-pill px-4"
+            >Contact us for custom solutions</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="lead text-muted">We'd love to hear from you</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 fade-in">
+            <div class="card shadow">
+              <div class="card-body p-5">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="name" class="form-label">Full Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="email" class="form-label"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="subject"
+                      placeholder="Enter subject"
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="5"
+                      placeholder="Enter your message"
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary w-100">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4 class="text-white mb-4">
+              <i class="fas fa-laptop-code me-2"></i>Online Examination Portal
+            </h4>
+            <p>
+              Transforming the examination experience with innovative technology
+              and comprehensive solutions for educational institutions
+              worldwide.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0 footer-links">
+            <h5>Company</h5>
+            <ul class="list-unstyled">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Partners</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0 footer-links">
+            <h5>Resources</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Webinars</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0 footer-links">
+            <h5>Legal</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Compliance</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0 footer-links">
+            <h5>Contact</h5>
+            <ul class="list-unstyled">
+              <li><a href="tel:+1234567890">+91 9426431311</a></li>
+              <li>
+                <a href="mailto:mann.shah@esparkbizmail.com"
+                  >mann.shah@esparkbizmail.com</a
+                >
+              </li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center copyright">
+          <p class="mb-0">
+            &copy; 2025 Online Examination Portal. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">
+              Log In to Your Account
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberMe"
+                />
+                <label class="form-check-label" for="rememberMe"
+                  >Remember me</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Log In
+              </button>
+            </form>
+            <div class="text-center mt-3">
+              <a href="#" class="text-decoration-none">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div
+      class="modal fade"
+      id="signupModal"
+      tabindex="-1"
+      aria-labelledby="signupModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">Create an Account</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder="Enter first name"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="Enter last name"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signupEmail"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signupPassword"
+                  placeholder="Create a password"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="termsCheck"
+                />
+                <label class="form-check-label" for="termsCheck"
+                  >I agree to the <a href="#">Terms and Conditions</a></label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Request Modal -->
+    <div
+      class="modal fade"
+      id="demoModal"
+      tabindex="-1"
+      aria-labelledby="demoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="demoModalLabel">Request a Demo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="demoName" class="form-label">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="demoName"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="demoEmail" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="demoEmail"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="demoOrganization" class="form-label"
+                  >Organization</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="demoOrganization"
+                  placeholder="Enter your organization"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="demoPhone" class="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="demoPhone"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="demoMessage" class="form-label"
+                  >Additional Information</label
+                >
+                <textarea
+                  class="form-control"
+                  id="demoMessage"
+                  rows="3"
+                  placeholder="Tell us about your specific needs"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Request Demo
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Fade-in animation for elements
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            fadeInObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      fadeElements.forEach((element) => {
+        fadeInObserver.observe(element);
+      });
+
+      // Add active class to nav links on scroll
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Initialize popovers and tooltips if needed
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+    </script>
+  </body>
+</html>

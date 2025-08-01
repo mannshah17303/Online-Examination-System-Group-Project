@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=], initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <p id="flag" hidden><%=flag%></p>
+    <p id="token" hidden><%=token%></p>
+    <div class="main">
+      <div class="container">
+        <form id="myform" class="form" method="post">
+          <label for="password">password: </label>
+          <input type="password" name="password" id="password" required />
+          <span id="passwordErr"></span>
+          <label for="retype">Re Enter Password: </label>
+          <input type="password" name="retype" required />
+          <span id="pwdErr"></span>
+          <input type="submit" id="submit" value="Sign In" />
+        </form>
+      </div>
+    </div>
+    <script src="/javascript/auth/forgotPass.js"></script>
+  </body>
+</html>

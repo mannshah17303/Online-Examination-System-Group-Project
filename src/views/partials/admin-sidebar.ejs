@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/css/admin-sidebar.css" />
+  </head>
+  <body>
+    <div class="sidebarMainDiv">
+      <div class="logo">
+        <img src="/images/transprant_logo.png" alt="Logo" />
+        <hr style="width: 90%" />
+      </div>
+      <a href="/dashboard-admin">Dashboard</a>
+      <div class="manage-exams">
+        <a href="#" class="manage-link" id="manageLink"
+          >Manage Exams <span class="dropdownSign">►</span></a
+        >
+        <ul class="dropdown" id="dropdownMenu">
+          <li><a class="exam-link" href="/exam-create">Create Exam</a></li>
+          <li><a href="/admin/manageExam">View Exam</a></li>
+        </ul>
+      </div>
+      <div class="manage-category">
+        <a href="#" class="manage-link" id="manageCategoryLink"
+          >Manage Category <span class="dropdownSign">►</span></a
+        >
+        <ul class="dropdown" id="categoryDropdownMenu">
+          <li><a href="/category/">View Categories</a></li>
+        </ul>
+      </div>
+      <a href="/admin/result">Result</a>
+      <a href="/api/batch/">Manage Students</a>
+      <a href="/admin/profile">Manage Profile</a>
+      <div class="logout-div">
+        <button class="logout">LOGOUT</button>
+      </div>
+    </div>
+
+    <script>
+      // Dropdown menu js
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("sidebar loaded");
+        
+        const manageLink = document.getElementById("manageLink");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        const manageCategoryLink =
+          document.getElementById("manageCategoryLink");
+        const categoryDropdownMenu = document.getElementById(
+          "categoryDropdownMenu"
+        );
+
+        manageLink.addEventListener("click", function (event) {
+          event.preventDefault();
+          dropdownMenu.style.display =
+            dropdownMenu.style.display === "block" ? "none" : "block";
+          //   categoryDropdownMenu.style.display = "none"; // Close category dropdown if open
+
+          manageLink.querySelector("span").innerHTML =
+            dropdownMenu.style.display == "block" ? "&#x25BC;" : "►";
+        });
+
+        manageCategoryLink.addEventListener("click", function (event) {
+          event.preventDefault();
+          categoryDropdownMenu.style.display =
+            categoryDropdownMenu.style.display === "block" ? "none" : "block";
+          //   dropdownMenu.style.display = "none"; // Close exams dropdown if open
+
+          manageCategoryLink.querySelector("span").innerHTML =
+            categoryDropdownMenu.style.display == "block" ? "&#x25BC;" : "►";
+        });
+
+        // window.addEventListener("click", function (event) {
+        //   if (
+        //     !manageLink.contains(event.target) &&
+        //     !dropdownMenu.contains(event.target)
+        //   ) {
+        //     dropdownMenu.style.display = "none";
+        //   }
+        //   if (
+        //     !manageCategoryLink.contains(event.target) &&
+        //     !categoryDropdownMenu.contains(event.target)
+        //   ) {
+        //     categoryDropdownMenu.style.display = "none";
+        //   }
+        // });
+      });
+    </script>
+  </body>
+</html>

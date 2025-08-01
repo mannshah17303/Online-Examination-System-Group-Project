@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div id="disableWholeScreen"></div>
+    <dialog id="loaderDialog">
+      <div id="loader"></div>
+    </dialog>
+    <div class="main">
+      <div class="container">
+        <p class="title">Sign Up</p>
+        <p class="ptag">Just one more step to create your first test!</p>
+        <form id="myform" class="form" method="post">
+          <label for="first_name">First Name: </label>
+          <input type="text" name="first_name" id="first_name" />
+          <span id="fnameErr"></span>
+          <label for="last_name">Last Name: </label>
+          <input type="text" name="last_name" id="last_name" />
+          <span id="lnameErr"></span>
+          <label for="email">Email: </label>
+          <input type="text" name="email" id="email" />
+          <span id="emailErr"></span>
+          <label for="phone">Phone: </label>
+          <input type="text" id="phone" name="phone" />
+          <span id="phoneErr"></span>
+          <label for="password">Password: </label>
+          <input type="password" name="password" id="password" />
+          <span id="passErr"></span>
+          <p>
+            Already have an account? <a href="/login" class="atag">Sign In</a>
+          </p>
+          <input type="submit" id="submit" value="SIGN-UP" />
+        </form>
+
+        <!-- <p style="display: none" id="emailsent">
+          Link sent to your email Id please verify your email
+        </p> -->
+      </div>
+    </div>
+    <!-- <div>
+      <img src="/images/login.png" width="300" height="400" alt="" />
+    </div> -->
+  </body>
+  <script src="/javascript/loader/loader.js"></script>
+  <script src="/javascript/auth/signup.js"></script>
+</html>

@@ -1,0 +1,420 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eff6ff;
+}
+
+.studentListMainDiv {
+  width: 100%;
+  /* height: 100vh; */
+  padding: 40px 0px;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  padding-bottom: 20px;
+  /* border-bottom: 2px solid #2f5f98; */
+}
+
+#batchNameLabel {
+  /* font-size: 23px;
+  font-weight: 600; */
+  color: #304673;
+}
+.sub-conatiner {
+  padding: 0px 20px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+  margin: 10px;
+}
+.studentListMainDiv .lineDiv {
+  width: 100%;
+  height: 2px;
+  background-color: #2f5f98;
+  margin-top: 10px;
+}
+
+.headerDiv #addStudentBtn {
+  padding: 8px 25px;
+  font-size: 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background-color: #304673;
+  border: 2px solid #304673;
+  color: white;
+  transition: all 0.1s ease-in-out;
+}
+
+.headerDiv #addStudentBtn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.studentListMainDiv .studentListDiv {
+  width: 100%;
+}
+
+.studentListDiv #deleteSelectedBtn {
+  padding: 8px 20px;
+  font-weight: 600;
+  background-color: rgb(158, 156, 156);
+  border: none;
+  border-radius: 50px;
+  margin-top: 15px;
+  display: flex;
+  cursor: pointer;
+  margin: 20px 0 20px auto;
+  /* justify-content: center;
+    align-items: center; */
+}
+
+/* #deleteSelectedBtn:hover {
+  cursor: pointer;
+  background-color: rgb(66, 66, 66);
+} */
+
+#deleteSelectedBtn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+#deleteSelectedBtn span img {
+  width: 20px;
+  height: 20px;
+}
+
+input {
+  background-color: #f6fafa;
+}
+/* .studentListDiv .studentListTable {
+  margin: auto;
+  width: 80%;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.studentListTable th,
+.studentListTable td {
+  font-size: 17px;
+  text-align: center;
+  padding: 5px;
+}
+
+.studentListTable thead {
+  border-bottom: 1px solid black;
+}
+
+.studentListTable td {
+  text-align: center;
+}
+
+.studentListTable tbody tr .deleteBtn {
+  padding: 3px 7px;
+  background-color: white;
+  border: none;
+  background: none;
+}
+
+.studentListTable tbody tr .deleteBtn:hover {
+  cursor: pointer;
+} */
+
+.deleteBtn img {
+  width: 23px;
+  height: 23px;
+}
+
+/* .studentListTable input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+}
+
+.studentListTable thead tr th {
+  border-bottom: 1px solid black;
+}
+
+.studentListTable tbody {
+  margin-top: 5px;
+} */
+
+.dialog-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px);
+  background: rgba(86, 111, 117, 0.6);
+  z-index: 1000;
+}
+
+.addStudentDiv {
+  padding: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+}
+
+.addStudentDiv #addStudentLabel {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: start;
+  width: 100%;
+  margin-bottom: 5px;
+  color: #304673;
+}
+
+.addStudentDiv .emailInputDiv input {
+  width: 77%;
+  padding: 8px 15px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.addStudentDiv .emailInputDiv input[type="button"] {
+  width: 20%;
+  padding: 8px 5px;
+  outline: none;
+  border: 1px solid rgb(119, 114, 114);
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.addStudentDiv .emailInputDiv input[type="button"]:hover {
+  cursor: pointer;
+  background-color: rgb(146, 146, 146);
+}
+
+.emailInputDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emailInputDiv #addEmailBtn {
+  padding: 8px 15px;
+  background-color: #304673;
+  color: #fff;
+  border: 2px solid #304673;
+}
+
+.emailInputDiv #addEmailBtn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.hideErrorLabel {
+  display: none;
+}
+
+.showErrorLabel {
+  width: 100%;
+  display: block;
+  text-align: start;
+  font-weight: 600;
+  color: rgb(126, 0, 0);
+  margin-top: 10px;
+}
+
+.addStudentFileDiv {
+  display: block;
+  padding: 10px;
+  width: 50%;
+  border-radius: 15px;
+  border: 1px solid #147b94;
+  position: fixed;
+  z-index: 1001;
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: rgb(230, 230, 230);
+  transform: translate(-50px, -50px);
+  top: 35%;
+  left: 30%;
+}
+
+.addStudentFileDiv #importFileLabel {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: start;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.addStudentFileDiv #emailFileLabel {
+  text-align: start;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.addStudentFileDiv .btnDiv {
+  height: auto;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.addStudentFileDiv .btnDiv .logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.addStudentFileDiv .logoDiv img {
+  width: 60px;
+  height: 60px;
+}
+
+.addStudentFileDiv .btnDiv #addStudentFileCloseBtn {
+  position: absolute;
+  outline: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px 8px;
+  margin-bottom: 15px;
+}
+
+.addStudentFileDiv .btnDiv #addStudentFileCloseBtn:hover {
+  background-color: rgb(121, 120, 120);
+}
+
+.addStudentFileDiv #addStudentFileForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addStudentFileDiv #addStudentFileForm input {
+  width: 70%;
+  padding: 8px 12px;
+  outline: none;
+  border: 1px solid rgb(119, 114, 114);
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.addStudentFileDiv #addStudentFileForm input[type="submit"] {
+  cursor: pointer;
+  width: 30%;
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #147b94;
+  color: white;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+  font-weight: 600;
+}
+
+.addStudentFileDiv #addStudentFileForm input[type="submit"]:hover {
+  background-color: #063541;
+}
+
+#addStudentFileForm .emailFileDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.emailFileDiv #studentListUpload {
+  padding: 8px 8px;
+}
+.indelete {
+  background-color: rgb(158, 156, 156);
+}
+
+.studentListTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fefdfd;
+  box-shadow: 0 4px 12px rgb(0, 0, 0);
+}
+
+.studentListTable th {
+  background-color: #304673;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+
+.studentListTable td {
+  padding: 16px 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #444;
+  border-bottom: 1px solid #eaeaea;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.studentListTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* .studentListTable tr:hover {
+  background-color: #f1f8ff;
+} */
+
+/* Button styles */
+.studentListTable button {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #304673; */
+  font-size: medium;
+  font-weight: 600;
+  /* border: 2px solid #304673;
+  cursor: pointer;
+  color: white; */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteBtn i {
+  background: none;
+}
+
+#CSVImg {
+  position: relative;
+  width: 30%;
+}

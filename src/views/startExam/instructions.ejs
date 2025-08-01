@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructions</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      li {
+        padding: 5px;
+      }
+      a {
+        background-color: #304673;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        padding: 7px 15px;
+      }
+    </style>
+  </head>
+  <!-- <body onload="btnClick()" onclick="btnClick()"> -->
+  <body>
+    <div>
+      <h3>Instructions</h3>
+      <div>
+        <ul>
+          <li>Arrange for stable Internet connectivity.</li>
+          <li>Giving examination on Laptop or Desktop is highly recommended</li>
+          <li>
+            Make sure laptop is fully charged. UPS/Inverter for laptop/desktop
+            should be arranged for uninterrupted power supply.
+          </li>
+          <li>
+            Close all browsers/tabs before starting the online examination
+          </li>
+          <li>
+            Once the exam starts, do not switch to any other window/tab. On
+            doing so, your attempt may be considered as malpractice and your
+            exam may get terminated.
+          </li>
+          <li>To avoid unwanted pop-ups, use of Ad Blocker is recommended.</li>
+          <li>
+            It is recommended to use web browser such as Chrome browsers etc. on
+            a desktop/laptop
+          </li>
+          <li>
+            Do not use the back button of keyboard or close button/icon to go
+            back to previous page or to close the screen.
+          </li>
+          <li>
+            It is compulsory to give permission for entire screen recording to
+            start exam.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="/api/start-exam/exam/<%= examId %>">Next</a>
+
+    <script>
+      window.onload = () => {
+        
+
+        window.history.pushState(null, document.title, window.location.href);
+        window.history.back();
+        window.history.forward();
+        window.onpopstate = function () {
+          window.history.go(1);
+        };
+      };
+    </script>
+  </body>
+</html>

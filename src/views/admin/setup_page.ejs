@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%title%>
+    </title>
+    <link rel="icon" href="/logo/transprant_logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/Admin Style/Admin_Setup/setup.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!--  Add the Loader -->
+        <div class="loader" id="loader" style="display: none;"></div>
+
+        <h1>Admin Setup</h1>
+        <form id="setup_form" class="setup_form">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" />
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" />
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+            <div class="form-group">
+                <label for="mobile_number">Mobile Number</label>
+                <input type="text" id="mobile_number" name="mobile_number" />
+            </div>
+            <div class="form-group">
+                <label for="aadhar_number">Aadhar Number</label>
+                <input type="text" id="aadhar_number" name="aadhar_number" />
+            </div>
+            <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" id="designation" name="designation" />
+            </div>
+            <div class="form-group">
+                <label for="organization_name">Organization Name</label>
+                <input type="text" id="organization_name" name="organization_name" />
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="field_of_speciality">Field of Specialty</label>
+                <input type="text" id="field_of_speciality" name="field_of_speciality" />
+            </div>
+            <button type="button" onclick="Send_Admin_Data()">Complete Setup</button>
+            <div class="error" id="error_message"></div>
+        </form>
+    </div>
+</body>
+<script src="/javascript/Admin Script/Setup_Script/setup_script.js"></script>
+
+</html>

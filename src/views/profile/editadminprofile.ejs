@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile/editadminprofile.css">
+</head>
+<body>
+         <div id="content">
+            <div id="heading">
+                <h2>Edit Profile Section</h2>
+            </div>
+           
+            <div id = 'form-div'>
+                <form id='form'>
+                    <div id="first">
+                        <div id="personal">
+                            <h3>Personal Information</h3>
+                            <div class="data">
+                                <div><label for="firstname">First Name</label><input type="text" id="firstname" name="firstname"></div>
+                                <div><label for="lastname">Last Name</label><input type="text" id="lastname" name="lastname"></div>
+                                <div><label for="dob">Date of Birth</label><input type="text" id="dob" name="dob"></div>
+                                <div><label for="email">Email</label><input type="text" id="email" name="email" readonly></div>
+                                <div><label for="number">Number</label><input type="text" id="number" name="number"></div>
+                                <div><label for="role">Role</label><input type="text" id="role" name="role" readonly ></div>
+                                <div><label for="address">Address</label><input type="text" id="address" name="address"></div>
+                                <div><label for="aadhar">Aadhar Number</label><input readonly type="text" id="aadhar" name="aadhar"></div>
+                                <div ><label for="">Gender</label><div id="gender_div"><input type="radio" name="gender" value="Male" id="male"><label for="male">Male</label><input type="radio" name="gender" value="Female" id="female"><label for="female">Female</label></div></div>
+                            </div>
+                        </div>
+                        <div id="other">
+                            <h3>Other Information</h3>
+                            <div class="data">
+                                <div><label for="designation">Designation</label><input type="text" id="designation" name="designation"></div>
+                                <div><label for="organization">Organization Name</label><input type="text" id="organization" name="organization"></div>
+                                <div><label for="experience">Year of Experience</label><input type="text" id="experience" name="experience"></div>
+                                <div><label for="speciality">Speciality</label><input type="text" id="speciality" name="speciality"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="btn"> 
+                    <a href='/admin/profile'>Cancel</a>
+                    <input type='submit' value='Update'>
+                    </div>
+                </form>
+            </div>
+         </div>
+
+
+    <script src="/javascript/profile/editadminprofile.js"></script>
+</body>
+</html>

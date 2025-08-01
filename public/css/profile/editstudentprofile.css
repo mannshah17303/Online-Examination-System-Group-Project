@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eff6ff;
+  display: flex;
+  gap: 20px;
+}
+
+#content {
+  /* padding: 0px 30px; */
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#heading {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 10px 10px 30px;
+  justify-content: space-between;
+  color: #304673;
+}
+#heading a {
+  padding: 10px 20px;
+  background-color: #304673;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#form-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  border-radius: 20px;
+  padding: 10px 10px;
+  /* border: #2f5f98 1px solid; */
+  width: 320px;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 3px 4px 5px 1px #dbdbdb;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form p {
+  font-size: larger;
+  font-weight: 700;
+  text-align: center;
+}
+
+form label {
+  color: gray;
+}
+
+form input {
+  border: 2px solid #ced3e2;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 0.1em 0.8em;
+  outline: none;
+  /* border: 1px solid #304673; */
+  overflow: hidden;
+}
+
+form div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form div a {
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #df1117;
+  width: 80px;
+  color: white;
+  text-decoration: none;
+}
+form div a:hover {
+  opacity: 0.6;
+}
+
+input[type="submit"] {
+  border-radius: 10px;
+  text-align: center;
+  font-size: 17px;
+  background-color: #304673;
+  width: 80px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.6;
+}

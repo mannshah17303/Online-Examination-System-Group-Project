@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Questions</title>
+  <link rel="icon" href="/logo/transprant_logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="/css/Admin Style/Category_Style/admin_category_style.css" />
+</head>
+
+<body>
+  <!-- Side Bar -->
+
+  <!-- Main Section -->
+  <div class="main-container" id="main-2">
+    <div class="head">
+      <h2>Category (All Subjects)</h2>
+      <button class="category-btn-add" onclick="openModal()">
+        Add Category
+      </button>
+    </div>
+
+    <!-- Add Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search Category" onkeyup="searchCategory()" />
+      <!-- img button -->
+      <button class="search-btn" onclick="searchCategory()">
+        <img src="/logo/search.svg" alt="search" width="50px">
+      </button>
+    </div>
+
+    <!-- List of Category Modal -->
+    <div class="item-scrollable">
+      <div class="sub-container" id="category-table">
+        <!-- dynamically display the category list in table -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Modal Category -->
+  <div id="myModal" class="modal">
+    <div class="modal-content-add">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Add New Category</h2>
+      <form id="categoryForm">
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" name="categoryName" required />
+        <button class="add-category" type="submit">Add Category</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Modal Category -->
+  <div id="editCategoryForm" class="modal" style="display: none">
+    <div class="modal-content-category">
+      <span class="close" id="closeEditModal" onclick="closeEditForm()">&times;</span>
+      <h2>Edit Category</h2>
+      <label for="editCategoryName">Category Name:</label>
+      <input type="text" id="editCategoryName" required />
+      <button class="edit-submit" onclick="submitEditForm(currentCategoryId)">
+        Save Changes
+      </button>
+    </div>
+  </div>
+</body>
+
+<script src="/javascript/Admin Script/Category_Script/admin_categoryList_script.js"></script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/css/Admin Style/admin-sidebar.css" />
+  </head>
+  <body>
+    <div class="sidebarMainDiv">
+      <div class="logo-div">
+        <img src="/logo/slogan.png" alt="Logo" class="slogan" />
+        <img src="/logo/transprant_logo.png" alt="Logo" class="logo" />
+        <hr class="hr" style="width: 90%" />
+      </div>
+      <a href="/dashboard-admin" id="dashboard">Dashboard</a>
+      <!-- <div class="manage-exams">
+        <a href="#" class="manage-link" id="manageLink"
+          >Manage Exams <span class="dropdownSign">►</span></a
+        >
+        <ul class="dropdown" id="dropdownMenu">
+          <li><a class="exam-link" href="#">Create Exam</a></li>
+          <li><a href="/admin/manageExam">View Exam</a></li>
+        </ul>
+      </div> -->
+      <a href="/admin/manageExam" id="manageLink">Manage Exam</a>
+      <a href="/admin/category" class="manage-link" id="manageCategoryLink"
+        >Manage Category</a
+      >
+
+      <a href="/admin/result" id="result">Result</a>
+      <a href="/admin/batch" id="batch_sidebare">Manage Students</a>
+      <a href="/admin/profile" id="manageLink2">Manage Profile</a>
+      <div class="logout-div">
+        <hr style="width: 90%" />
+        <button class="logout" id="logout" onclick="logout()">LOGOUT</button>
+      </div>
+    </div>
+
+    <script>
+      async function logout() {
+        // console.log("logout");
+        // console.log(document.cookie);
+
+        let res = await fetch("/admin/logout");
+        location.href = "/admin/login";
+      }
+      function addCss(id) {
+        document.getElementById(id).style.backgroundColor = "#304673";
+        document.getElementById(id).style.borderRadius = "5px";
+        document.getElementById(id).style.color = "#fff";
+      }
+      function url() {
+        // console.log(location.href);
+        let url2 = location.href.toLowerCase();
+        if (url2.includes("dashboard")) {
+          addCss("dashboard");
+        } else if (url2.includes("exam") || url2.includes("assessment")) {
+          addCss("manageLink");
+        } else if (url2.includes("category")) {
+          addCss("manageCategoryLink");
+        } else if (url2.includes("profile")) {
+          addCss("manageLink2");
+        } else if (url2.includes("result")) {
+          addCss("result");
+        } else if (url2.includes("batch")) {
+          addCss("batch_sidebare");
+        }
+      }
+      url();
+    </script>
+  </body>
+</html>

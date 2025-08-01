@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Home Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/css/student-sidebar.css" />
+  </head>
+  <body>
+    <div class="sidebarMainDiv">
+      <div class="logo-div">
+        <!-- <img src="/images/transprant_logo.png" alt="Logo" /> -->
+        <img src="/logo/slogan.png" alt="Logo" class="slogan">
+        <img src="/logo/transprant_logo.png" alt="Logo" class="logo">
+        <hr style="width: 90%" />
+      </div>
+      <a href="/student/dashboard" id="dashboard">Dashboard</a>
+      <div class="manage-exams">
+        <a href="/student/manageExam" class="manage-link" id="manageLink"
+          >Exams</a
+        >
+      </div>
+      <div class="manage-category">
+        <a href="/student/result" class="manage-link" id="manageCategoryLink"
+          >Results</a
+        >
+      </div>
+      <a href="/student/profile" id="manageLink2">Manage Profile</a>
+      <div class="logout-div">
+        <hr style="width: 90%" />
+        <button class="logout" id="logout">LOGOUT</button>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("logout").addEventListener("click", async () => {
+        let result = confirm("Are you sure you want to logout");
+        if (result) {
+          try {
+            let res = await fetch(`/api/student/logout`, {
+              method: "post",
+            });
+            // console.log(res);
+
+            res = await res.json();
+            // console.log(res);
+
+            window.location.href = "/login";
+          } catch (err) {
+            console.log("err", err);
+          }
+        }
+      });
+      function addCss(id) {
+        document.getElementById(id).style.backgroundColor = "#304673";
+        document.getElementById(id).style.borderRadius = "5px";
+
+        document.getElementById(id).style.color = "#fff";
+      }
+      function url() {
+        // console.log(location.href);
+        if (location.href.includes("dashboard")) {
+          addCss("dashboard");
+        } else if (location.href.includes("manageExam")) {
+          addCss("manageLink");
+        } else if (location.href.includes("result")) {
+          addCss("manageCategoryLink");
+        } else if (location.href.includes("profile")) {
+          addCss("manageLink2");
+        }
+      }
+      url();
+    </script>
+  </body>
+</html>

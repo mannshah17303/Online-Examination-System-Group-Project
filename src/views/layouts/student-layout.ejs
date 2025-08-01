@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Layout</title>
+    <link rel="stylesheet" href="/css/student-layout.css">
+</head>
+<body>
+    <div id="disableWholeScreen"></div>
+    <div class="wrapper">
+        <div class="sidebarDiv"><%- include('../partials/student-sidebar.ejs') %></div>
+        <div class="mainDiv"><%- body %></div>
+    </div>
+    <dialog id="loaderDialog">
+        <div id="loader"></div>
+    </dialog>
+
+    <script src="/javascript/loader/loader.js"></script>
+</body>
+</html>

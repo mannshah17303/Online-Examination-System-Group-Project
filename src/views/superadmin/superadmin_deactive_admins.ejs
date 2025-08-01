@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Super_Admin/superadmin_manage_deactive_style.css">
+    <link rel="icon" href="/logo/transprant_logo.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="top-bar">
+            <h1>
+                <%=msg%>
+            </h1>
+            <button class="profile-btn" onclick="GoBack()">Back</button>
+        </div>
+    
+        <div class="data-container"></div>
+    </div>
+
+    <div class="data-container" id="data-container"></div>
+
+    <!-- Admin Action Modal -->
+    <div id="adminActionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('adminActionModal')">&times;</span>
+            <h2>Admin Action</h2>
+            <p id="adminActionMessage"></p>
+            <button id="activateButton" onclick="activateAdmin()">Activate</button>
+            <button id="deleteButton" onclick="deleteAdmin()">Delete</button>
+            <button id="cancleButton" onclick="closeModal('adminActionModal')">Cancel</button>
+        </div>
+    </div>
+
+</body>
+
+<!-- Script -->
+<script src="/javascript/Super_Admin/superadmin_manage_deactive_script.js"></script>
+<script src="/javascript/Super_Admin/superadmin_dashboard_script.js"></script>
+
+</html>

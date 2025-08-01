@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/exam/currentExam.css">
+</head>
+
+<body>
+    <div class="conrtainer">
+        <div class="head">
+            <h2 id="exam_name">Student List </h2>
+            <div>
+                <a href="/exam-create" class="btn-create" id="preview">Preview Exam</a>
+                <a href="/screen-share/<%= examId %>" class="btn-create" id="screenShare">Screen Sharing</a>
+            </div>
+        </div>
+        <div class="student-conatainer">
+            <h3>Total Invited : <span id="total-invited"></span></h3>
+            <div class="student-list">
+                <div class="active-div">
+                    <h4>Active Students</h4>
+                    <div class="active-student" id="active-student">
+                        No Active Candidate
+                    </div>
+                </div>
+                <div class="inactive-div">
+                    <h4>Inactive Students</h4>
+                    <div class="inactive-student" id="inactive-student">
+                        No Inctive Candidate
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="previewPop">
+        <div id="previewHead"></div>
+        <div id="categroy"></div>
+        <div id="exam"></div>
+    </div>
+    <script>const examId = `<%=examId%>`</script>
+    <script src="/javascript/exam/currentExam.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/result.css" />
+  </head>
+  <body>
+    <p style="display: none;" id="examId"><%=examId%></p>
+    <form method="post" id="assess_paper" style="display: none;">
+      <input type="text" name="exam_id" id="frm_examId">
+      <input type="text" name="student_id" id="frm_studentId">
+      <input type="submit" value="submit">
+    </form>
+    <div class="main-container main_vidhi">
+      <div class="sub-container">
+        <div class="head" id="examData">Result</div>
+        <div class="sub-container2">
+          <div class="search-wrapper">
+            <input
+              type="text"
+              id="search"
+              class="search"
+              placeholder="Search result by email"
+            />
+          </div>
+          <div id="all-data">
+            <table id="get-student-data" class="tbl"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/javascript/result/studentResult.js"></script>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Questions</title>
+  <link rel="icon" href="/logo/transprant_logo.png" type="image/x-icon" />
+
+  <link rel="stylesheet" href="/css/Admin Style/Que_Ans_Style/admin_quesbank_style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.tiny.cloud/1/m9q8bdt8udomvlk8diys3r6z9rqeskxeaq0x0vo8r9v0zvkf/tinymce/7/tinymce.min.js"
+    referrerpolicy="origin"></script>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="head">
+      <button onclick="window.location.href='/admin/category'">Back</button>
+      <div class="title">
+        <h1>Question List</h1>
+      </div>
+      <button onclick="OpenQueTypeModal()">Add Question</button>
+    </div>
+
+    <!-- List of All Questions -->
+    <div class="list-all-ques">
+      <div id="questionsContainer">
+        <!-- The questions table will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="edit-myModal" class="edit-modal">
+    <div class="edit-modal-content">
+      <span class="edit-close" onclick="edit_closeModal()">&times;</span>
+      <h2>Edit Question</h2>
+      <input type="hidden" id="edit-questionIdDisplay" name="edit-questionIdDisplay" readonly />
+      <input type="hidden" id="edit-questionType" readonly />
+      <textarea id="edit-questionText" rows="4" cols="50" placeholder="Edit your question here..."></textarea>
+      <br />
+      <input type="text" name="answerInp" id="answerInp" class="subjective-answer" />
+      <button class="edit-btn-save" onclick="edit_saveQuestion()">
+        Save
+      </button>
+    </div>
+  </div>
+
+  <!-- Add Ques Type Modal -->
+  <div id="add-ques-type-modal" class="add-ques-type-modal">
+    <div class="edit-modal-content">
+      <span class="add-ques-type-close" onclick="add_ques_type_closeModal()">&times;</span>
+      <h2>Choose Question Type</h2>
+      <form id="add-ques-type-form">
+        <label for="add-ques-type">Select Question Type:</label>
+        <select id="add-ques-type" name="add-ques-type" required>
+          <option value="" disabled selected>Select a type</option>
+          <option value="MCQ">MCQ</option>
+          <option value="Subjective">Short Answers</option>
+        </select>
+        <button type="button" class="add-ques-type-btn-save" onclick="add_ques_type_save()">
+          Next
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Subjective Question Modal -->
+  <div id="subjective-question-modal" class="add-ques-modal">
+    <div class="edit-modal-content">
+      <h2>Enter Your Subjective Question</h2>
+      <textarea id="subjective-question-input"></textarea>
+      <div id="subjective-ans-input-div"></div>
+      <button type="button" class="add-ques-type-btn-save" onclick="saveSubjectiveQuestion()">
+        Save Question
+      </button>
+      <button class="add-ques-type-btn-close" onclick="CloseQueModal()">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- MCQ Question Modal -->
+  <div id="mcq-question-modal" class="add-ques-modal">
+    <div class="edit-modal-content">
+      <h2>Enter Your MCQ Question</h2>
+      <textarea id="mcq-question-input"></textarea>
+      <!-- create a optionContainer  -->
+      <div id="mcq-option-modal-div"></div>
+      <button type="button" class="add-ques-type-btn-save" onclick="addMcqQueModal()">
+        Add Question
+      </button>
+      <button class="add-ques-type-btn-close" onclick="CloseMcqModal()">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- View MCQ Option Modal -->
+  <div id="view-mcq-option-modal" class="add-ques-modal">
+    <div class="view-mcq-modal-content">
+      <span class="add-ques-type-close" onclick="CloseMcqOptionModal()">&times;</span>
+      <h2>View MCQ Options</h2>
+      <div id="view-mcq-option-div"></div>
+      <div id="mcq-add-option-modal-div"></div>
+      <!-- add option button -->
+      <div class="buttons-div" id="buttons-div">
+        <!-- buttons -->
+      </div>
+      <button class="add-ques-type-btn-close" onclick="CloseMcqOptionModal()">
+        Cancle
+      </button>
+    </div>
+  </div>
+</body>
+<script src="/javascript/Admin Script/Que_Ans_Script/admin_quesbank_script.js"></script>
+
+</html>

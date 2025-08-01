@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Create</title>
+    <link rel="stylesheet" href="/css/exam/editExamQuestions.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="he">
+        <div id="heading">
+          <a href="#" class="previous1 round" onclick="goBack(event)"
+            >&#8249;</a
+          >
+          <h3 id="exam-name"></h3>
+        </div>
+        <div id="line"></div>
+
+        <div class="category-select">
+          <div>
+            <label for="category" style="color: #31356e"
+              >Select Question Category:</label
+            >
+            <select name="category" id="category"></select>
+          </div>
+          <div>
+            <label for="question-type" style="color: #31356e"
+              >Question Type:</label
+            >
+            <select name="question-type" id="question-type">
+              <option value="all" selected>All</option>
+              <option value="Subjective">Subjective</option>
+              <option value="MCQ">MCQ</option>
+            </select>
+          </div>
+        </div>
+        <div class="total-marks">
+          <p>Total Marks : <span id="total-marks">0</span></p>
+        </div>
+      </div>
+      <div class="question-container">
+        <div class="question-type"></div>
+        <div class="question-list" id="question-list">
+          <div class="selected-questions" id="selected-questions">
+            <h3>Selected Questions:</h3>
+          </div>
+          <div class="not-selected-question" id="not-selected-question"></div>
+        </div>
+      </div>
+      <div class="action-button">
+        <input
+          type="button"
+          value="Save"
+          onclick="saveQuestions(event)"
+          id="save"
+        />
+        <a href="#" id="next" onclick="return alert('Please save changes')"
+          >Next</a
+        >
+      </div>
+    </div>
+    <!-- <form action="/edit-exam" method="post" id="go_to_edit_exam" style="display: none;">
+        <input type="text" name="examId" id="exam_Id">
+        <input type="text" name="marks" id="marks" value="1">
+        <input type="submit" value="submit">
+    </form> -->
+    <script>
+      const examId = ` <%=examId%>`;
+    </script>
+    <script src="/javascript/exam/editExamQuestions.js"></script>
+  </body>
+</html>

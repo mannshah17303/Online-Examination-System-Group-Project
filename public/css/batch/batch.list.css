@@ -1,0 +1,105 @@
+.listDiv {
+  margin: auto;
+  width: 40%;
+  height: 100%;
+  border: 1px solid black;
+  padding: 3%;
+}
+
+.listDiv > ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listDiv > ul li {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #fff;
+  margin: 2%;
+  width: 100%;
+  padding: 1%;
+  border-radius: 18px;
+  justify-content: space-between;
+  height: 6vh;
+}
+
+.listDiv > ul li span {
+  cursor: pointer;
+}
+
+.symbol {
+  padding-left: 1rem;
+}
+
+.symbol:hover {
+  cursor: pointer;
+  color: #304673;
+}
+
+.batch-table-BatchPage {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fefdfd;
+  box-shadow: 0 4px 12px rgb(0, 0, 0);
+}
+
+.batch-table-BatchPage th {
+  background-color: #304673;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+
+.batch-table-BatchPage td {
+  padding: 16px 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #444;
+  border-bottom: 1px solid #eaeaea;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.batch-table-BatchPage tr:last-child td {
+  border-bottom: none;
+}
+
+.batch-table-BatchPage tr:hover {
+  background-color: #f1f8ff;
+}
+
+/* Button styles */
+.batch-table-BatchPage button {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  /* padding: 10px 20px; */
+  width: 90px;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #304673;
+  font-size: medium;
+  font-weight: 600;
+  border: 2px solid #304673;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.batch-table-BatchPage button:hover {
+  /* opacity: 0.6; */
+  /* transform: scale(1.05); */
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}

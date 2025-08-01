@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #eff6ff;
+}
+
+.blurMainDiv > *:not(#addBatchDivId) {
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.headInBatchPage {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+
+  /* border-bottom: 2px solid #304673; */
+  justify-content: space-between;
+  color: #304673;
+}
+
+.category-btn-add-BatchPage {
+  font-size: medium;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  font-weight: 600;
+  background-color: #304673;
+  border: 2px solid #304673;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.category-btn-add-BatchPage:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.sub-container-BatchPage {
+  padding: 20px;
+}
+
+.category-table tr td:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.batchName {
+  padding-left: 1rem;
+}
+
+.addBatchDiv {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border: 2px solid black;
+  top: 30%;
+  left: 40%;
+  z-index: 100;
+  background-color: white;
+  flex-direction: column;
+  padding: 1%;
+}
+
+.batchNameInp {
+  height: 2.5rem;
+  width: 17rem;
+  margin: 2rem;
+  border: 3px solid #ccc;
+  outline: none;
+  padding: 5px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+input:focus {
+  padding: 10px;
+  border: 3px solid #555;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+.btn-group {
+  width: 100%;
+  align-items: center;
+  padding: 0px 20px;
+  margin-right: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+#addBtn {
+  padding: 10px 20px;
+  background-color: #304673;
+  border: 2px solid #304673;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#addBtn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+#deleteBtn {
+  font-size: medium;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  font-weight: 600;
+  background-color: #c40000;
+  color: white;
+  border: 2px solid #c40000;
+  border-radius: 5px;
+  font-weight: bold;
+  /* margin-left: 2%; */
+  transition: all 0.2s ease-in-out;
+}
+
+#deleteBtn:hover {
+  cursor: pointer;
+  color: black;
+}
+
+#closeBtnAddBatch {
+  position: absolute;
+  top: 0%;
+  left: 91%;
+  height: 30px;
+  width: 10%;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  background: none;
+  color: #aaa;
+}
+
+#closeBtnAddBatch:hover {
+  cursor: pointer;
+  color: red;
+  color: black;
+}

@@ -1,0 +1,184 @@
+<!-- #212529
+
+
+#6b6a6a -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        background-color: #c2dde2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
+      .container {
+        width: 27vw;
+
+        background-color: #ffffff;
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        border-radius: 5px;
+        border: 1px solid;
+      }
+      .title {
+        font-family: "Times New Roman", serif;
+        color: #101111;
+        font-size: 30px;
+        font-weight: 700;
+      }
+      label {
+        color: #6b6a6a;
+        font-size: 17px;
+      }
+      input {
+        border: 2px solid #ced3e2;
+        height: 2.2em;
+        font-size: 15px;
+        color: #6b6a6a;
+        padding-left: 0.8em;
+        outline: none;
+        overflow: hidden;
+        background-color: #f3f3f3;
+        border-radius: 12px;
+        transition: all 0.5s;
+      }
+
+      input:focus {
+        box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+        background-color: white;
+      }
+      #submit {
+        height: 40px;
+        align-items: center;
+        text-align: center;
+        background-color: #081758;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+        border: none;
+        border-radius: 12px;
+      }
+      #submit:hover {
+        opacity: 0.7;
+      }
+      .atag {
+        font-size: 17px;
+        font-weight: 500;
+        color: #081758;
+      }
+      .atag:hover {
+        color: #8b2d15;
+      }
+      .form {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .ptag {
+        color: #6b6a6a;
+      }
+      p {
+        margin: 0;
+      }
+      .logo {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+      }
+      .logotext {
+        font-size: 35px;
+        margin-top: 30px;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="/login.png" width="300" height="400" alt="" />
+    </div>
+    <div class="main">
+      <div class="container">
+        <p class="title">Sign In</p>
+        <p class="ptag">Just one more step to create your first test!</p>
+        <form id="myform" class="form" method="post">
+          <label for="email">Email: </label>
+          <input type="text" name="email" id="email" />
+          <span id="emailErr"></span>
+          <label for="pwd">Password: </label>
+          <input type="password" name="pwd" id="pwd" />
+          <span id="pwdErr"></span>
+          <input type="submit" id="submit" value="Sign In" />
+        </form>
+        <p>Don't have an account? <a href="/signup" class="atag">Sign Up</a></p>
+      </div>
+    </div>
+
+    <script>
+      const myform = document.getElementById("myform");
+      // async function checkAuth() {
+      //   let res = await fetch("/checkAuth");
+      //   let response = await res.json();
+      //   console.log(res);
+      //   if (res.status == 200) {
+      //     location.href = "/dashboard";
+      //   } else {
+      //   }
+      // }
+      // checkAuth();
+
+      myform.onsubmit = async (e) => {
+        e.preventDefault();
+        let url = location.href;
+        // console.log(url);
+        // console.log(myform);
+      
+        const data = new FormData(myform);
+        
+        // console.log(...data);
+
+        if (url.includes("superadmin")) {
+          let res = await fetch("/superadmin/login", {
+            method: "post",
+            body: data,
+          });
+          res = await res.json();
+          // console.log(res);
+        } else if(url.includes('admin')) {
+          let res = await fetch("/admin/login", {
+            method: "post",
+            body: data,
+          });
+          res = await res.json();
+          // console.log(res);
+        }else{
+            let res = await fetch("/login", {
+            method: "post",
+            body: data,
+          });
+          res = await res.json();
+          // console.log(res);
+        }
+      };
+    </script>
+  </body>
+</html>

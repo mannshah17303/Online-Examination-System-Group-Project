@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/assessment.css" />
+  </head>
+  <body>
+    <form action="/admin/assessment" method="post" style="display: none;" id="assessment_page">
+      <input type="text" name="examId" id="frm_examId">
+      <input type="submit" value="submit">
+    </form>
+    <p id="examId" style="display: none;"><%=examId%></p>
+    <p id="studentId" style="display: none;"><%=studentId%></p>
+    <p id="assess" style="display: none;"><%=assess%></p>
+    <div class="head">
+      <div class="sub-head">
+        <h2 id="exam_name"></h2>
+        <p id="total_mark"></p>
+        <p id="passing_marks"></p>
+        <p id="duration"></p>
+      </div> 
+      <div class="sub-head2" id="sub-head"></div>
+    </div>
+    <div class="container">  
+      <div id="questions"></div>
+    </div>
+    <script src="/javascript/assessment/assess-student.js"></script>
+  </body>
+</html>
+

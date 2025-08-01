@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/exam/manageExam.css" />
+  </head>
+  <body>
+    <div class="head">
+      <h2 id="exam_name">Manage Exams</h2>
+      <a href="/exam-create" class="btn-create">Create Exam</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" name="search" id="searchExam" placeholder="Search by Exam Name">
+    </div>
+    <div id="content">
+      <div>
+        <!-- From Uiverse.io by Yaya12085 -->
+        <div id="side">
+          <div class="radio-input">
+            <label>
+              <input
+                type="radio"
+                id="current"
+                name="value-radio"
+                value="value-1"
+                checked
+              />
+              <span>Current Exams</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="upcoming"
+                name="value-radio"
+                value="value-2"
+              />
+              <span>Upcoming Exams</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="completed"
+                name="value-radio"
+                value="value-3"
+              />
+              <span>Completed Exams</span>
+            </label>
+            <span class="selection"></span>
+          </div>
+        </div>
+        <div id="exam">
+          <div id="examData"></div>
+        </div>
+      </div>
+    </div>
+    <!-- <form action="/edit-exam" method="post" id="go_to_edit_exam">
+      <input type="text" name="examId" id="examId">
+      <input type="text" name="marks" id="marks">
+      <input type="submit" value="submit">
+    </form> -->
+
+    <form action="/admin/assessment" method="post" id="go_to_assessment">
+      <input type="text" name="examId" id="frm_examID" />
+      <input type="submit" value="submit" />
+    </form>
+    <script src="/javascript/exam/manageExam.js"></script>
+  </body>
+</html>

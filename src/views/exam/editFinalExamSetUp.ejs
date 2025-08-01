@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/exam/finalExamSetUp.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .action-button{
+            width: 280px;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <div id="SideBar">
+
+    </div> -->
+    <a href="#" class="previous round" onclick="goBack(event)" id="back">&#8249;</a>
+    <dialog id="loaderDialog">
+        <div id="loader"></div>
+    </dialog>
+   
+    <form action="" id="finalExamSubmit">
+        <div class="container">
+            <div id="heading">
+                <h2>Exam</h2>
+                <div class="action-button">
+                    <a  id="preview" onclick="showPreview()">Preview Exam</a>
+                    <a href="" id="edit">Edit Exam</a>
+                </div>
+            </div>
+           
+            <!-- <div id="line"></div> -->
+            <div class="main">
+                <div class="exam-detail-container">
+                    <div class="exam-1">
+                        <div class="exam-name">
+                            <label for="exam_name">Exam Name :</label>
+                            <input type="text" id="exam-name" name="exam_name">
+                        </div>
+                        <div class="exam-description">
+                            <label for="exam_description">Exam Description:</label>
+                            <input type="text" id="exam-description" name="exam_description">
+                        </div>
+                    </div>
+                    <div class="exam-categories">
+                        <div class="category-label">
+                            <h5>Question Categories:</h5>
+                        </div>
+                        <div class="category-grid" id="category-grid">
+                        </div>
+                    </div>
+       
+                    
+                    <div class="exam-marks-time-info">
+                        <h5 id="total-marks">Total Marks : 100</h5>
+                        <div class="exam-bottom-1">
+                            <div>
+                                <label for="passing_marks">Passing Marks:</label>
+                                <input type="text" id="passing-marks" name="passing_marks">
+                            </div>
+                            <div>
+                                <label for="duration">Duration :</label>
+                                <input type="text" id="duration" name="duration" placeholder="minnutes">
+                            </div>  
+                        </div>
+                        <div class="exam-bottom-1">
+                            <div>
+                                <label for="start_time">Start Time :</label>
+                                <input type="datetime-local" id="start-time" name="start_time">
+                            </div>
+    
+                            <div>
+                                <label for="end_time">End Time :</label>
+                                <input type="datetime-local" id="end-time" name="end_time">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="batch">
+                    <div class="batch-select">
+                        <label for="batch">Select Batch:</label>
+                        <select name="batch" id="batch">
+
+                        </select>
+                        <input type="button" id="add-batch" value="+" onclick="addBatch()">
+                    </div>
+                    <div class="message" style="font-size: 10px; color:red">Previous selected batch can not be added
+                        , You can only remove student</div>
+                    <div class="batch-list">
+                        
+                        <!-- <div class="batch-info">
+
+                    </div> -->
+                    </div>
+                </div>
+                <div class="seletct-student">
+                    <div>
+                        <label for="individual_student">Select Student:</label>
+                    <input type="text" name="individual_student" id="individual-email" placeholder="Enter Email">
+                    <input type="button" value="+" onclick="addStudent()">
+                    </div>
+                        <div class="student-list" id="student-list">
+                        </div>     
+                </div>
+                <div class="selected-student" id="selected-student">
+                </div>
+            </div>
+            <div class="submit-exam">
+               <a href="#" id="delete" class="delete">Detele</a>
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+
+    <div id="previewPop">
+        <div id="previewHead"></div>
+        <div id="categroy"></div>
+        <div id="exam"></div>
+    </div>
+
+
+<script>const examId=`<%=examId%>`</script>
+    <script src="/javascript/exam/editFinalExamSetUp.js"></script>
+    
+</body>
+
+</html>

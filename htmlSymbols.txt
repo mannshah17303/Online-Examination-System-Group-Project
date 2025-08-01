@@ -1,0 +1,2 @@
+Empty square = &#9633;
+Filled square = &#9632;

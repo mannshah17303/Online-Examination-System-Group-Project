@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eff6ff;
+  display: flex;
+  gap: 20px;
+}
+#SideBar {
+  width: 25%;
+  background-color: aqua;
+  height: 100%;
+}
+form {
+  display: none;
+}
+
+/* body {
+  background-color: #eff6ff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+}
+#SideBar {
+  width: 25%;
+  background-color: aqua;
+  height: 100%;
+} */
+#content {
+  margin-top: 20px;
+  padding: 0px 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#heading {
+  padding: 0px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#heading a {
+  border: 2px solid #2f5f98;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px 0;
+  background-color: #41b8d5;
+  width: 120px;
+  color: white;
+  text-decoration: none;
+}
+
+#line {
+  width: 100%;
+  height: 2px;
+  background-color: #2f5f98;
+}
+
+/* From Uiverse.io by Yaya12085 */
+.radio-input input {
+  display: none;
+}
+
+.radio-input {
+  --container_width: 100%;
+  position: relative;
+  display: flex;
+  /* align-items: center; */
+  /* background-color: red; */
+  border-radius: 10px;
+  /* background-color: #fff; */
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  /* border: 1px solid #21599b; */
+  /* background-color: white; */
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 14px;
+}
+
+.radio-input span {
+  color: #304673;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#side {
+  /* position: fixed; */
+  width: 100%;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+
+.radio-input label:has(input:checked) {
+  color: #fff;
+}
+
+.radio-input label:has(input:checked) ~ .selection {
+  background-color: #21599b;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.radio-input label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 0 / 1));
+}
+
+.radio-input label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 1 / 1));
+}
+
+.radio-input label:nth-child(3):has(input:checked) ~ .selection {
+  transform: translateX(calc(var(--container_width) * 2 / 1));
+}
+
+#exam {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exam_details {
+  margin: 2px;
+  border-radius: 8px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  /* border: 2px solid #21599b;  */
+  background-color: white;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exam_details:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.first span {
+  background-color: #00bf63;
+  width: 120px;
+  color: white;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 20px;
+}
+
+.second {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+}
+.third {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: smaller;
+}
+
+.four {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.four span {
+  color: #036435;
+  font-weight: 600;
+}
+
+.action-links {
+  display: flex;
+  gap: 10px; /* Spacing between buttons */
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap; /* Prevent buttons from breaking into a new line */
+}
+.action-links a {
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+}
+.view-btn {
+  background-color: #304673;
+  padding: 10px;
+  height: 20px !important;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  overflow: -moz-scrollbars-none;
+}

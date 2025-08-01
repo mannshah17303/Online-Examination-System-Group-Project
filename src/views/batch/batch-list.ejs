@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="/css/batch/batch.list.css">
+
+<!-- <div class="listDiv"> -->
+    <div class="sub-container-BatchPage" id="batch-table-BatchPage">
+        <table class="batch-table-BatchPage">
+            <tr>
+                <th></th>
+                <th>Batch Name</th>
+                <th>Actions</th>
+            </tr>
+            <% for (i = 0; i < allBatches.length; i++) { %>
+                <tr>
+                    <td><input type="checkbox" name="check"
+                        id="check_<%= allBatches[i]['batch_id'] %>"></td>
+                    <td>
+                        <div id="spanInpDiv_<%= allBatches[i]['batch_id'] %>">
+                            <span id="span_<%= allBatches[i]['batch_id'] %>"
+                                class="batchName">
+                                <%= allBatches[i]['batch_name'] %>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" onclick="redirectToBatchWiseStudents(`<%= allBatches[i]['batch_id'] %>`)">
+                            View
+                        </button>
+                        <button type="button" id="edit_<%= allBatches[i]['batch_id'] %>">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+    </div>

@@ -1,0 +1,129 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+body {
+  background-color: #eff6ff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eff6ff;
+  display: flex;
+  gap: 20px;
+}
+#SideBar {
+  width: 25%;
+  background-color: aqua;
+  height: 100%;
+}
+
+#heading {
+  padding: 0px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#heading a {
+  border: 2px solid #2f5f98;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px 0;
+  background-color: #41b8d5;
+  width: 120px;
+  color: white;
+  text-decoration: none;
+}
+
+.view-btn {
+  background-color: #28a745;
+  padding: 5px;
+  height: 20px !important;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#exam {
+  margin-top: 4%;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exam_details {
+  border-radius: 8px;
+  border: 2px solid #21599b;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.first span {
+  background-color: #00bf63;
+  width: 120px;
+  color: white;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 20px;
+}
+
+.second {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+}
+.third {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: smaller;
+}
+
+.four {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.four span {
+  color: #036435;
+  font-weight: 600;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  overflow: -moz-scrollbars-none;
+}

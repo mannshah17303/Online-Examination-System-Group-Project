@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/result.css" />
+  </head>
+  <body>
+   <form action="/admin/student-result" method="post" id="go_to_student_result">
+      <input type="text" name="examId" id="frm_examId">
+      <input type="submit" value="submit">
+    </form>
+    <div class="main-container">
+      <div class="sub-container">
+        <div class="head">Result</div>
+        <div class="sub-container2">
+          <div id="search_bar" class="search-wrapper">
+            <input
+              type="text"
+              placeholder="Search exam by name"
+              onkeyup="change_con(this)"
+              id="search_box"
+              class="search"
+            />
+          </div>
+          <table id="main_con" class="tbl"></table>
+          <div id="page">
+            <button onclick="change_con(this)" class="btn"><<</button>
+            <button onclick="change_con(this)" class="btn">prev</button>
+            <span id="current_page">1</span><span>of</span
+            ><span id="page_count">5</span>
+            <button onclick="change_con(this)" class="btn">next</button>
+            <button onclick="change_con(this)" class="btn">>></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/javascript/result/result.js"></script>
+  </body>
+</html>
+

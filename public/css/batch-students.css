@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.studentListMainDiv {
+    width: 100%;
+    height: 100vh;
+    padding: 20px 15px;
+}
+
+.headerDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.studentListMainDiv .lineDiv {
+    width: 100%;
+    height: 2px;
+    background-color: #2f5f98;
+    margin-top: 10px;
+}
+
+.headerDiv #addStudentBtn {
+    padding: 8px 25px;
+    font-size: 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: #147b94;
+    color: white;
+}
+
+.headerDiv #addStudentBtn:hover {
+    cursor: pointer;
+    background-color: #063541;
+}

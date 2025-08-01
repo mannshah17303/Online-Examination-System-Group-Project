@@ -1,0 +1,529 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #eff6ff;
+  height: 100%;
+}
+
+.category-table i{
+  font-weight: 600;
+}
+
+.mainCategoryDiv {
+  width: 100%;
+  padding: 20px 15px;
+}
+
+.hr-tag {
+  margin-bottom: 25px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 20px 10px 30px;
+
+  /* border-bottom: 2px solid #304673; */
+  justify-content: space-between;
+  color: #304673;
+}
+
+.sub-container {
+  padding: 20px;
+  max-height: 78vh;
+  padding-bottom: 100px;
+}
+
+/* Display Category List with Buttons */
+.item-scrollable {
+  margin-top: 10px;
+  overflow-y: scroll;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fefdfd;
+  box-shadow: 0 4px 12px rgb(0, 0, 0);
+}
+
+.category-table th {
+  background-color: #304673;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+
+.category-table td {
+  padding: 16px 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #444;
+  border-bottom: 1px solid #eaeaea;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.category-table tr:last-child td {
+  border-bottom: none;
+}
+
+.category-table tr:hover {
+  background-color: #f1f8ff;
+}
+
+/* Button styles */
+.category-table button {
+  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  padding: 10px 20px;
+  width: 90px;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #304673;
+  font-size: medium;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 2px solid #304673;
+}
+
+.category-table button:hover {
+  color: #304673;
+  background-color: #fff;
+}
+
+/* Specific button color styles */
+.view-button {
+  background-color: #25913ede;
+}
+
+.edit-button {
+  background-color: #d1a728;
+}
+
+.delete-button {
+  background-color: #dc3546d7;
+}
+
+/* Button hover effects */
+.view-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .category-table {
+    font-size: 13px;
+  }
+
+  .category-table th,
+  .category-table td {
+    padding: 10px;
+  }
+
+  .category-table .btn {
+    width: 80px;
+    /* Adjusted width for smaller screens */
+    height: 36px;
+    /* Adjusted height for smaller screens */
+    font-size: 12px;
+  }
+}
+
+#categoryDetailsContainer {
+  /* margin-top: 20px; */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  max-height: 75%;
+  overflow: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* END */
+
+.category-btn-add {
+  padding: 10px 20px;
+  background-color: #304673;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid #304673;
+}
+
+.category-btn-add:hover {
+  color: #304673;
+  background-color: #fff;
+}
+
+/* Ques-And and Category Modal */
+/* Modal styles */
+.category-table-que-ans {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+/* Cell styles */
+.category-table-que-ans th,
+.category-table-que-ans td {
+  padding: 12px 20px;
+  text-align: center;
+  border-bottom: 1px solid #000000;
+}
+
+/* Header styles */
+.category-table-que-ans th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Remove bottom border for the last row */
+.category-table-que-ans tr:last-child td {
+  border-bottom: none;
+}
+
+/* Row hover effect */
+.category-table-que-ans tr:hover {
+  background-color: #0654ca65;
+}
+
+/* Actions cell styles */
+.actions-cell-que {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Button styles */
+.btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  color: white;
+  /* Default text color for buttons */
+}
+
+/* Button color styles */
+.edit-button {
+  background-color: #ffc107;
+  /* Yellow */
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+  /* Darker yellow on hover */
+}
+
+.delete-button {
+  background-color: #dc3545;
+  /* Red */
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  /* Darker red on hover */
+}
+
+.view-options-button {
+  background-color: #007bff;
+  /* Blue */
+}
+
+.view-options-button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+/* Options list styles */
+.options-list-que-ans {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+.options-list-que-ans li {
+  background-color: #f8f9fa;
+  padding: 5px;
+  border: 1px solid #eaeaea;
+  margin: 2px 0;
+  border-radius: 4px;
+}
+/* END */
+
+/* Add Category Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content-add {
+  background-color: #fefefe;
+  margin: 5% 30%;
+  padding: 20px;
+  border: 1px solid #888;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 27%;
+  max-height: 57vh;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-category {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background-color: #304673;
+  margin-top: 11px;
+  border: 2px solid #304673;
+}
+
+.add-category:hover {
+  color: #304673;
+  background-color: #fff;
+}
+/* Viewing Ques/Ans */
+.question-item {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Styles for the question content */
+.question-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the options list */
+.options-list {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+
+/* Editing Category Modal */
+/* Modal styles */
+#editCategoryForm {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content-category {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Label styles */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Input styles */
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  font-size: large;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.edit-submit {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 10px;
+}
+
+/* Save button styles */
+.edit-submit {
+  background-color: #304673;
+  color: white;
+  margin-top: 10px;
+}
+
+.edit-submit:hover {
+  opacity: 0.6;
+}
+
+/* Cancel button styles */
+.cancle {
+  background-color: #dc3546b9;
+  color: white;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancle:hover {
+  background-color: #c82333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .modal-content-category {
+    padding: 15px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  .edit-submit,
+  button[type="button"] {
+    font-size: 14px;
+  }
+}
+
+/* Add New Questions */
+.btn.add-question-button {
+  color: white;
+  background-color: #304673;
+  padding: 10px;
+}
+
+/* Adding Question for Existing Ques List */
+.add-ques-button-shortcut {
+  color: white;
+  background-color: #304673;
+  border-radius: 21px;
+  padding: 15px;
+  margin-bottom: 8px;
+  width: 150px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+/* Search Bar CSS*/
+.search-bar {
+  margin-top: 20px;
+  margin-left: 150px;
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar .search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

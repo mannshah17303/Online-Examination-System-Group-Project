@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> </title>
+    <!-- link css -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #ffffff;
+        border-right: 1px solid #ddd;
+        padding: 15px;
+        height: 100vh;
+        position: fixed;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .sidebar .logo-div {
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12%;
+      }
+
+      .logo-div hr {
+        margin-bottom: 10px;
+      }
+
+      .sidebar .logo {
+        border-radius: 50%;
+        border: 1px solid #201b1b !important;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 55%;
+      }
+
+      .sidebar .slogan {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+      }
+
+      .sidebar a:hover {
+        color: #ffffff;
+        background-color: #304673;
+        border-radius: 5px;
+      }
+
+      .sidebar a {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 17px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: #333;
+        padding: 10px;
+        font-weight: 600;
+      }
+
+      .sidebar .logout-div {
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sidebar .logout {
+        margin-top: 25px;
+        padding: 10px;
+        width: 92%;
+        text-align: center;
+        background-color: #00385f;
+        border: 2px solid #00385f;
+        font-weight: bold;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .logout:hover {
+        /* background-color: #f13232; */
+        background-color: white;
+        color: #00385f;
+      }
+
+      /* Dropdown Container */
+      .ma-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Toggle Link */
+      .ma-dropdown-toggle {
+        text-decoration: none;
+        padding: 10px 15px;
+        color: white;
+        border-radius: 4px;
+      }
+
+      /* Dropdown Menu Styles */
+      .ma-dropdown-menu {
+        margin-left: 25px;
+        display: none;
+        position: inherit;
+        z-index: 1000;
+        margin-top: 5px;
+      }
+
+      /* Dropdown Menu Links */
+      .ma-dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .img-drop {
+        display: flex;
+      }
+
+      .img-drop img {
+        width: 20px;
+        height: 25px;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Super Admin Dashboard -->
+    <div class="container">
+      <!-- Loader HTML -->
+      <div
+        id="genericLoader"
+        class="generic-loader"
+        style="display: none"
+      ></div>
+      <!-- Backdrop HTML -->
+      <div id="backdrop" class="backdrop" style="display: none"></div>
+
+      <div class="sidebar">
+        <div class="logo-div">
+          <img src="/logo/slogan.png" alt="Logo" class="slogan" />
+          <img src="/logo/transprant_logo.png" alt="Logo" class="logo" />
+          <hr class="hr" style="width: 90%" />
+        </div>
+        <br />
+        <a href="/super-admin/dashboard">Dashboard</a>
+        <a href="/super-admin/manage-profile">Manage Profile</a>
+        <a href="/super-admin/manage-admins">View All Admins</a>
+        <a href="/super-admin/add-admin-page">Add New Admin</a>
+        <a href="/super-admin/deactive-admins">De-Active Admins</a>
+        <!-- <a href="/super-admin/construction">Manage Plans</a>
+            <a href="/super-admin/construction">Manage Website</a> -->
+        <div class="logout-div">
+          <hr style="width: 90%" />
+          <button class="logout" onclick="logout()">LOGOUT</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // make a dropdown menu for Manage Admin
+    document.addEventListener("DOMContentLoaded", () => {
+      const manageAdminsLink = document.getElementById("ma-manageAdminsLink");
+      const dropdownMenu = document.getElementById("ma-dropdownMenu");
+
+      manageAdminsLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        dropdownMenu.style.display =
+          dropdownMenu.style.display === "block" ? "none" : "block"; // Toggle dropdown visibility
+      });
+
+      window.addEventListener("click", (event) => {
+        if (!event.target.matches(".ma-dropdown-toggle")) {
+          dropdownMenu.style.display = "none";
+        }
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,440 @@
+.main-container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+
+  background-color: #eff6ff;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  /* border-bottom: 2px solid #304673; */
+  justify-content: space-between;
+  color: #304673;
+}
+.head button {
+  border: 2px solid #304673;
+  background-color: #304673;
+  color: #fff;
+}
+.head button:hover {
+  color: #304673;
+  background-color: #fff;
+}
+.questionsContainer {
+  padding: 20px;
+}
+.question-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.actions-dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: #304673;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  /* padding: 8px 12px; */
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #304673;
+}
+
+.dropdown-button:hover {
+  color: #304673;
+  background-color: #fff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffffea;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.781);
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  margin-right: 5px;
+  background-color: #304673;
+  color: #fff;
+}
+
+/* Styles for the question header */
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the delete image */
+.delete-button-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #e73f3f;
+}
+
+/* Edit Ques Modal */
+.edit-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.edit-modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  max-height: 85vh;
+}
+
+.edit-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.edit-close:hover,
+.edit-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.edit-btn-save {
+  background-color: #01395f;
+  border-radius: 10px;
+  width: 110px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  height: 45px;
+}
+
+.edit-btn-save:hover {
+  background-color: #10830c;
+  border-radius: 10px;
+  width: 110px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  height: 45px;
+}
+
+/* Que-Option Modal CSS */
+
+/* Modal Background */
+.add-ques-type-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+/* Close Button */
+.add-ques-type-close,
+.ques-type-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-ques-type-close:hover,
+.add-ques-type-close:focus,
+.ques-type-close:hover,
+.ques-type-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Heading */
+h2 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+}
+
+/* Form Elements */
+label {
+  display: block;
+  margin-bottom: 11px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Save Button */
+.add-ques-type-btn-save {
+  margin-top: 30px;
+  background-color: #4caf50;
+  /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 21%;
+}
+
+.add-ques-type-btn-save:hover {
+  background-color: #45a049;
+  /* Darker green */
+}
+
+/* Save Button */
+.add-ques-type-btn {
+  background-color: #304673;
+  /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+}
+
+.add-ques-type-btn:hover {
+  background-color: #304673;
+  /* Darker green */
+}
+
+/* Save Button */
+.add-ques-type-btn-close {
+  background-color: #e21b01ab;
+  /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+}
+
+.add-btn-submit {
+  background-color: #304673;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+}
+
+.add-ques-type-btn-close:hover {
+  background-color: #e21b01d7;
+  /* Darker green */
+}
+
+/* Animation for Modal Content */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.add-ques-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.mcq-option-modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Input fields for options */
+.mcq-option-input {
+  width: calc(70% - 80px);
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-left: 12px;
+}
+
+/* Add and Remove buttons */
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Style for Add Option button */
+.add-option-button {
+  background-color: #304673;
+  color: white;
+}
+
+/* Style for Remove button */
+.remove-option-button {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Hover effects for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .mcq-option-modal-content {
+    width: 95%;
+  }
+
+  .mcq-option-input {
+    width: calc(100% - 80px);
+  }
+}
+
+.view-mcq-modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  max-height: 85vh;
+  max-width: 265vh;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.readonly-textbox {
+  border: none;
+  background-color: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  cursor: default;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 11px;
+  padding: 13px;
+  font-size: larger;
+}
+
+.correct-option {
+  accent-color: green;
+}
+
+.correct-answer {
+  background-color: #deffe6;
+  color: #0b4218;
+  border: 3px solid #0b4218;
+}
+
+.mcq-edit-img-button {
+  margin-left: 6px;
+}
+
+.mcq-delete-img-button {
+  margin-left: 10px;
+}
+
+.subjective-answer {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border: 2px solid #304673;
+  font-size: medium;
+  padding: 10px;
+}

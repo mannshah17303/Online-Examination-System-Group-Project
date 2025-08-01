@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/assessment.css" />
+  </head>
+  <body>
+    <p id="examId" style="display: none;"><%=examId%></p>
+    <form method="post" id="assess_paper" style="display: none;">
+      <input type="text" name="exam_id" id="frm_examId">
+      <input type="text" name="student_id" id="frm_studentId">
+      <input type="submit" value="submit">
+    </form>
+    <div class="head">
+      <div class="sub-head">
+        <h2 id="exam_name"></h2>
+        <p id="total_mark"></p>
+        <p id="passing_marks"></p>
+        <p id="duration"></p>
+      </div>
+      <div>
+        <a href="/student-screen-recording/<%= examId %>">Student Recordings</a>
+      </div>
+    </div>
+    <div class="container">
+      <div id="side">
+        <div class="radio-input">
+          <label>
+            <input
+              type="radio"
+              id="total"
+              name="value-radio"
+              value="value-1"
+              onclick="getData(this)"
+            />
+            <span>Total Invited</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              id="attended"
+              name="value-radio"
+              value="value-2"
+              onclick="getData(this)"
+            />
+            <span>Attended</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              id="assessed"
+              name="value-radio"
+              value="value-3"
+              onclick="getData(this)"
+            />
+            <span>Assessed</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              id="pending"
+              name="value-radio"
+              value="value-2"
+              checked
+              onclick="getData(this)"
+            />
+            <span>Pending Assessment</span>
+          </label>
+          <span class="selection"></span>
+        </div>
+      </div>
+      <div id="tab">
+        <div id="tab-head">
+          <div class="sub-container">
+            <h3 id="total_no">Total Pending:</h3>
+            <div class="search-wrapper">
+              <input
+                type="text"
+                id="search"
+                onkeyup="search(this)"
+                class="search"
+                placeholder="Search by email"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="tab-data">
+          <table id="con"></table>
+          <div id="pageing"></div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascript/assessment/total-invited.js"></script>
+  </body>
+</html>
+

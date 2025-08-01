@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/exam/student-recording.css">
+  </head>
+  <body>
+    <div id="dialogOverlay"></div>
+    <div class="studentRecordingMainDiv">
+      <h3>Student Recording</h3>
+    </div>
+
+    <script>
+      const examId = "<%= examId %>";
+      const studentRecordingMainDiv = document.querySelector(
+        ".studentRecordingMainDiv"
+      );
+      const dialogOverlay = document.getElementById("dialogOverlay")
+
+      window.addEventListener("load", async (e) => {
+        try {
+          const response = await fetch("/student-screen-recording", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+              examId: examId,
+            }),
+          });
+
+          const result = await response.json();
+          console.log("result: ", result.data);
+
+          if (response.status == 200 && response.ok) {
+            result.data.forEach((e) => {
+                // dialogOverlay.classList.remove("dialogOverlay");
+              const studentRecordingDiv = document.createElement("div");
+              studentRecordingDiv.setAttribute("class", "studentRecordingDiv");
+
+              const studentId = document.createElement("p");
+              studentId.setAttribute("id", "studentId");
+              studentId.innerHTML = `${e.student_id}`;
+              studentRecordingDiv.appendChild(studentId)
+
+              const studentFullName = document.createElement("p");
+              studentFullName.setAttribute("id", "studentFullName");
+              studentFullName.innerHTML = `${e.full_name}`
+              studentRecordingDiv.appendChild(studentFullName);
+
+              const recordingViewBtn = document.createElement("button");
+              recordingViewBtn.setAttribute("id", "recordingViewBtn");
+              recordingViewBtn.innerHTML = `View`;
+              recordingViewBtn.addEventListener("click", (event) => {
+                const videoTag = document.createElement("video");
+                videoTag.setAttribute("id", "videoTag");
+                videoTag.src = `${e.recording_url}`
+                videoTag.controls = true
+                dialogOverlay.classList.add("dialog-overlay");
+                videoTag.classList.add("videoTag");
+                studentRecordingMainDiv.appendChild(videoTag);
+              })
+            //   recordingViewBtn.onclick = () => recordingBtnHandler(e.student_id)
+
+              studentRecordingDiv.appendChild(recordingViewBtn);
+
+              studentRecordingMainDiv.appendChild(studentRecordingDiv)
+            });
+          }
+        } catch (error) {
+          throw new Error(error);
+        }
+      });
+    </script>
+  </body>
+</html>

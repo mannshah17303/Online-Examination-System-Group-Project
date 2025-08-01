@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h2>Live Exams</h2>
+
+    <div id="examsContainer"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const examsContainer = document.getElementById("examsContainer");
+      const examStreams = {}; 
+      
+      socket.emit("admin-join", {
+        adminId: "<%= adminId %>",
+        examId: "<%= examId %>"
+      })
+
+      socket.on("admin-screen-data", ({ examId, studentId, imageData }) => {
+        console.log("inside admin-screen-data");
+        
+          if (!examStreams[examId]) {
+              const examSection = document.createElement("div");
+              examSection.innerHTML = `<h3>Exam ID: ${examId}</h3>`;
+              examSection.id = `exam-${examId}`;
+              examsContainer.appendChild(examSection);
+              examStreams[examId] = {};
+          }
+
+          if (!examStreams[examId][studentId]) {
+              const img = document.createElement("img");
+              img.width = 300;
+              img.alt = `Student-${studentId}`;
+              img.style.margin = "10px";
+
+              const label = document.createElement("p");
+              label.textContent = `Student: ${studentId}`;
+
+              const container = document.createElement("div");
+              container.style.display = "inline-block";
+              container.style.textAlign = "center";
+              container.appendChild(label);
+              container.appendChild(img);
+
+              document.getElementById(`exam-${examId}`).appendChild(container);
+              examStreams[examId][studentId] = img;
+          }
+
+          examStreams[examId][studentId].src = imageData;
+      });
+    </script>
+  </body>
+</html>

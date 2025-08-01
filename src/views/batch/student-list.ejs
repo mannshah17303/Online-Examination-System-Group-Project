@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student-List</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/css/batch/student-list.css" />
+  </head>
+  <body>
+    <div id="dialogOverlay"></div>
+    <div class="studentListMainDiv">
+      <div class="headerDiv">
+        <h2 id="batchNameLabel">Batch -</h2>
+        <button id="addStudentBtn">Import File</button>
+      </div>
+      <div class="sub-conatiner">
+        <div class="addStudentDiv">
+          <span id="addStudentLabel">Add Students</span>
+          <div class="emailInputDiv">
+            <input placeholder="Email" type="email" name="email" id="email" />
+            <input type="button" value="Add" id="addEmailBtn" />
+          </div>
+          <span id="emailErrorLabel"></span>
+        </div>
+        <div class="studentListDiv">
+          <button id="deleteSelectedBtn">
+            <span
+              ><img class="indelete" src="/images/delete.png" alt="delete logo"
+            /></span>
+            <span class="indelete">Delete Selected</span>
+          </button>
+          <div class="sub-container-BatchPage" id="batch-table-BatchPage">
+            <table class="studentListTable batch-table-BatchPage">
+              <thead>
+                <tr>
+                  <th><input id="selectAll" type="checkbox" /></th>
+                  <th>No.</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="addStudentFileDiv">
+          <div class="btnDiv">
+            <button id="addStudentFileCloseBtn">⨯</button>
+            <div class="logoDiv">
+              <img src="/images/transprant_logo.png" alt="" />
+            </div>
+          </div>
+          <form
+            id="addStudentFileForm"
+            action=""
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <!-- <div id="addStudentFileForm"> -->
+            <span id="importFileLabel">Import Email list from file</span>
+            <span id="emailFileLabel"
+              >If you have a list of addresses in the text file or CSV (*csv) format, upload it here and follow the given format in your file
+            </span>
+            <img
+              src="/images/formatOfCSVForAddingStudentInBatch.png"
+              alt="Format of CSV file"
+              id="CSVImg"
+            />
+            <div class="emailFileDiv">
+              <input type="file" name="studentListFile" id="studentListFile" />
+              <input type="submit" value="upload" id="studentListUpload" />
+            </div>
+            <!-- </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script data-data="<%= JSON.stringify(batchId) %>">
+      document.addEventListener("DOMContentLoaded", async function () {
+        addLoader();
+        setTimeout(() => {
+          removeLoader();
+        }, 500);
+      });
+      const studentListMainDiv = document.querySelector(".studentListMainDiv");
+      const studentListDiv = document.querySelector(".studentListDiv");
+      const batchNameLabel = document.getElementById("batchNameLabel");
+      const selectAllCheckbox = document.getElementById("selectAll");
+      const batchId = JSON.parse(document.currentScript.dataset.data);
+      const deleteSelectedBtn = document.getElementById("deleteSelectedBtn");
+      const addStudentBtn = document.getElementById("addStudentBtn");
+      const addEmailBtn = document.getElementById("addEmailBtn");
+      const emailInput = document.getElementById("email");
+      const emailErrorLabel = document.getElementById("emailErrorLabel");
+      const addStudentFileDiv = document.getElementById("addStudentFileDiv");
+      const dialogOverlay = document.getElementById("dialogOverlay");
+      const addStudentFileCloseBtn = document.getElementById(
+        "addStudentFileCloseBtn"
+      );
+      const addStudentFileForm = document.getElementById("addStudentFileForm");
+      const studentListFile = document.getElementById("studentListFile");
+
+      addStudentFileForm.addEventListener("submit", async (e) => {
+        try {
+          e.preventDefault();
+
+          const formData = new FormData(addStudentFileForm);
+          formData.append("batchId", batchId);
+          const response = await fetch(`/api/batch/student-file`, {
+            method: "POST",
+            body: formData,
+          });
+          const result = await response.json();
+          // console.log("result: ", result);
+          if (response.status == 200) {
+            const addStudentResponse = await fetch(`/api/batch/add-student`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: result.data,
+                batchId: batchId,
+              }),
+            });
+            const addStudentResult = await addStudentResponse.json();
+
+            if (addStudentResponse.status == 404) {
+              emailErrorLabel.innerHTML = `${addStudentResult.message}`;
+              emailErrorLabel.classList.add("showErrorLabel");
+              emailInput.value = "";
+              studentListFile.value = "";
+              addStudentFileDiv.classList.remove("addStudentFileDiv");
+              dialogOverlay.classList.remove("dialog-overlay");
+            } else if (addStudentResponse.status == 201) {
+              emailInput.value = "";
+              studentListFile.value = "";
+              addStudentFileDiv.classList.remove("addStudentFileDiv");
+              dialogOverlay.classList.remove("dialog-overlay");
+              getStudentList();
+            } else if (addStudentResponse.status == 200) {
+              emailInput.value = "";
+              studentListFile.value = "";
+              addStudentFileDiv.classList.remove("addStudentFileDiv");
+              dialogOverlay.classList.remove("dialog-overlay");
+              getStudentList();
+            } else {
+              throw new Error(result.data);
+            }
+          } else {
+            throw new Error(result.data);
+          }
+        } catch (error) {
+          throw new Error(error);
+        }
+      });
+
+      addStudentFileCloseBtn.addEventListener("click", (e) => {
+        addStudentFileDiv.classList.remove("addStudentFileDiv");
+        dialogOverlay.classList.remove("dialog-overlay");
+      });
+
+      addStudentBtn.addEventListener("click", (e) => {
+        addStudentFileDiv.classList.add("addStudentFileDiv");
+        dialogOverlay.classList.add("dialog-overlay");
+      });
+
+      addEmailBtn.addEventListener("click", async (e) => {
+        try {
+          const email = emailInput.value;
+          const response = await fetch(`/api/batch/add-student`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: [email],
+              batchId: batchId,
+            }),
+          });
+          // console.log("response: ", response);
+          const result = await response.json();
+          // console.log("result: ", result);
+
+          if (response.status == 404) {
+            emailErrorLabel.innerHTML = `${result.message}`;
+            emailErrorLabel.classList.add("showErrorLabel");
+            emailInput.value = "";
+          } else if (response.status == 201) {
+            getStudentList();
+            emailInput.value = "";
+          } else {
+            throw new Error(result.data);
+          }
+        } catch (error) {
+          throw new Error(error);
+        }
+      });
+
+      async function getStudentList() {
+        try {
+          dialogOverlay.classList.remove("dialog-overlay");
+          addStudentFileDiv.classList.add("hideErrorLabel");
+          emailErrorLabel.classList.remove("showErrorLabel");
+          emailErrorLabel.classList.add("hideErrorLabel");
+
+          const response = await fetch(`/api/batch/students`, {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+              batchId: batchId,
+            }),
+          });
+          const studentListResult = await response.json();
+          // console.log("studentListResult: ", studentListResult);
+
+          if (response.ok) {
+            let orderCount = 0;
+            batchNameLabel.innerHTML =
+              "Batch - " + `${studentListResult.data.batchName[0].batch_name}`;
+
+            const tbody = document.createElement("tbody");
+            studentListResult.data.studentList.forEach((student) => {
+              orderCount++;
+              const tr = document.createElement("tr");
+              const checkbox = document.createElement("td");
+              checkbox.innerHTML = `<input class="checkbox" type="checkbox" value="${student.student_id}">`;
+              tr.appendChild(checkbox);
+              const orderNo = document.createElement("td");
+              orderNo.innerHTML = `${orderCount}`;
+              tr.appendChild(orderNo);
+              const email = document.createElement("td");
+              email.innerHTML = `${student.email}`;
+              tr.appendChild(email);
+              const deleteBtn = document.createElement("button");
+              deleteBtn.setAttribute("class", "deleteBtn");
+              deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+              deleteBtn.onclick = () => {
+                if (confirm("Are you sure?")) {
+                  deleteById(student.student_id);
+                }
+              };
+              tr.appendChild(deleteBtn);
+              tbody.appendChild(tr);
+            });
+            document
+              .querySelector(".studentListTable tbody")
+              .replaceWith(tbody);
+          }
+        } catch (error) {
+          // console.log(error);
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", getStudentList);
+
+      selectAllCheckbox?.addEventListener("click", (e) => {
+        if (selectAllCheckbox.checked == true) {
+          document.querySelectorAll(".checkbox").forEach((ele) => {
+            ele.checked = true;
+          });
+        } else {
+          document.querySelectorAll(".checkbox").forEach((ele) => {
+            ele.checked = false;
+          });
+        }
+      });
+
+      deleteSelectedBtn?.addEventListener("click", async (e) => {
+        try {
+          let temp = [];
+          document.querySelectorAll(".checkbox").forEach((ele) => {
+            if (ele.checked == true) {
+              temp.push(ele.value);
+            }
+          });
+
+          if (temp.length == 0) {
+            alert("Select students to delete");
+            return false;
+          }
+
+          if (confirm("Are you sure?")) {
+            const studentsIds = [];
+            document.querySelectorAll(".checkbox").forEach((ele) => {
+              if (ele.checked == true) {
+                // console.log(ele);
+
+                studentsIds.push(ele.value);
+              }
+            });
+
+            const response = await fetch(`/api/batch/delete-student`, {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify({
+                student_id: studentsIds,
+                batchId: batchId,
+              }),
+            });
+            if (response.status == 200 && response.ok) {
+              getStudentList();
+              selectAllCheckbox.checked = false;
+            }
+          }
+        } catch (error) {
+          throw new Error(error);
+        }
+      });
+
+      async function deleteById(student_id) {
+        try {
+          const studentIds = [student_id];
+          const response = await fetch(`/api/batch/delete-student`, {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+              student_id: studentIds,
+              batchId: batchId,
+            }),
+          });
+          if (response.status == 200 && response.ok) {
+            getStudentList();
+          }
+        } catch (error) {
+          throw new Error(error);
+        }
+      }
+    </script>
+  </body>
+</html>

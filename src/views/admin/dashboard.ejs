@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Questions</title>
+    <link rel="icon" href="/logo/transprant_logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/Admin Style/Dashboard_Style/admin_dashboard_style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="mainDashboardDiv">
+      <div class="top-bar">
+        <h1>Admin Dashboard</h1>
+        <button class="profile-btn">
+          <a href="/admin/profile">View Profile</a>
+        </button>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <p>Total Students</p>
+          <span id="total_stud" class="total-number">0</span>
+          <!-- Insert SVG or Image -->
+          <img
+            src="/logo/total_stud.svg"
+            alt="Total Students"
+            class="card-icon"
+          />
+        </div>
+        <div class="card">
+          <p>Total Category</p>
+          <span id="total_category" class="total-number">0</span>
+          <img
+            src="/logo/total_cate.svg"
+            alt="Total Category"
+            class="card-icon"
+          />
+        </div>
+        <div class="card">
+          <p>Exams Taken</p>
+          <span id="total_past_exam" class="total-number">0</span>
+          <img src="/logo/exam.png" alt="Past Exams" class="card-icon" />
+        </div>
+        <div class="card">
+          <p>Total Batches</p>
+          <span id="total_batch" class="total-number">0</span>
+          <img src="/logo/batch.svg" alt="Total Batches" class="card-icon" />
+        </div>
+      </div>
+      <div class="analytics-div">
+        <div class="analytics-heading">
+          <h2>Analytics</h2>
+          <hr />
+        </div>
+        <!-- Charts -->
+
+        <div class="analytics-card">
+          <h2>Student Performance Analysis</h2>
+          <div class="performance-chart">
+            <canvas id="myChart-1"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h2>Batch Analysis</h2>
+          <div>
+            <canvas id="myChart-2"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h2>Setup and Deletion Analysis</h2>
+          <div>
+            <canvas id="myChart-3"></canvas>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h2>Engagement Analysis</h2>
+          <div>
+            <canvas id="myChart-4"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/javascript/Admin Script/Dashboard_Script/admin_main_dashboard_logic_script.js"></script>
+</html>

@@ -1,0 +1,268 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.sidebarMainDiv {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 15px;
+  max-height: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  overflow-y: scroll;
+}
+
+.sidebarMainDiv::-webkit-scrollbar {
+  display: none;
+}
+
+/* .sidebarMainDiv .logo {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .sidebarMainDiv img {
+  width: 80%;
+  height: 160px;
+} */
+
+.sidebarMainDiv a:hover {
+  color: #ffffff;
+  background-color: #063873;
+  border-radius: 5px;
+}
+
+.sidebarMainDiv a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: justify;
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  font-weight: 600;
+}
+
+/* Manage Exam Dropdown */
+.manage-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.dropdown {
+  display: none;
+  position: inherit;
+  border-radius: 10px;
+  width: 75%;
+  padding-left: 30px;
+}
+
+.dropdown li {
+  display: flex;
+  list-style: none;
+}
+
+.dropdown li a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 0;
+  display: block;
+}
+
+.dropdown li a:hover {
+  width: 120px;
+  background-color: #3b77b8;
+}
+
+/* MANAGE EXAM DROPDOWN END */
+
+/* Manage Category Dropdown */
+.manage-category .manage-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.manage-category .dropdown {
+  display: none;
+  position: inherit;
+  border-radius: 10px;
+  width: 180px;
+  margin-left: 0px;
+}
+
+.manage-category .dropdown li {
+  list-style: none;
+}
+
+.manage-category .dropdown li a {
+  text-decoration: none;
+  display: block;
+}
+
+.manage-category .dropdown li a:hover {
+  color: #ffffff;
+  width: 150px;
+  background-color: #3b77b8;
+}
+
+/* MANAGE CATEGORY DROPDOWN END */
+
+.sidebarMainDiv .logout-div {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebarMainDiv .logout {
+  margin-top: 20px;
+  padding: 10px;
+  width: 92%;
+  text-align: center;
+  background-color: #063873;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdownSign {
+  margin-left: 50px;
+}
+
+.logout:hover {
+  opacity: 0.7;
+}
+
+/* Main Section */
+.main {
+  flex: 1;
+  padding: 30px;
+  margin-left: 300px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar h1 {
+  font-size: 26px;
+}
+
+.top-bar button {
+  padding: 10px 20px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-btn:hover {
+  background-color: #154e8f;
+  font-weight: bold;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* .card {
+    background-color: white;
+    width: 23%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    padding: 10px;
+  } */
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.analytics-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+.analytics h2 {
+  margin: 0 0 10px;
+}
+
+.analytics hr {
+  border: none;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-chart,
+.pie-chart {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #888;
+  border-radius: 4px;
+}
+
+.sidebarMainDiv .slogan {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  margin-top: 30px;
+}
+.logo-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.sidebarMainDiv .logo {
+  /* border-radius: 50%; */
+  /* border: 1px solid #201b1b !important; */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 55%;
+}

@@ -1,0 +1,253 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body {
+  background-color: #eff6ff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+} */
+.wrapper {
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eff6ff;
+  display: flex;
+  gap: 20px;
+}
+#exam-name {
+  color: #304673;
+}
+.question {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.container {
+  margin-top: 3%;
+  padding: 0px 30px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#heading a {
+  border: 2px solid #2f5f98;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px 0;
+  background-color: #41b8d5;
+  width: 120px;
+  color: white;
+  text-decoration: none;
+}
+
+#line {
+  margin-top: 5px;
+  width: 100%;
+  height: 2px;
+  background-color: #2f5f98;
+  margin-bottom: 10px;
+}
+
+.category-select {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 1%;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1%;
+}
+
+#category {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  border-color: #f7f7f7;
+  border: 1px solid #000000;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.question-container {
+  width: 95%;
+  padding: 25px 0;
+  margin-left: 2%;
+  margin-top: 7%;
+}
+
+#question-type {
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  border-color: #f7f7f7;
+  border: 1px solid #000000;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+input[type="button"] {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  padding-bottom: 20px;
+  font-size: larger;
+  cursor: pointer;
+  color: #21599b;
+}
+#next {
+  margin-top: 10px;
+  width: 60px;
+  color: white;
+  font-size: medium;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: #304673;
+  text-align: center;
+  padding: 6px 14px;
+  overflow: hidden;
+  z-index: 5;
+}
+.action-button {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 75%;
+  top: 95vh;
+  background-color: rgb(239 246 255);
+  padding-bottom: 3vh;
+  padding-right: 1vh;
+  margin-bottom: 3%;
+}
+.question-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 3%;
+}
+
+#save {
+  margin-top: 10px;
+  width: 60px;
+  color: white;
+  font-size: medium;
+  border-radius: 6px;
+  background-color: #304673;
+  height: 30px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+input[type="text"] {
+  width: 50px;
+  height: 25px;
+}
+
+#he {
+  background-color: rgb(239 246 255);
+  position: fixed;
+  width: 75%;
+  top: 0;
+  padding-top: 3%;
+  padding-bottom: 1%;
+}
+
+.question-content {
+  width: 70%;
+  align-self: center;
+}
+
+.question-add-btn {
+  width: 30%;
+  height: auto;
+  display: flex;
+  align-items: start;
+  flex-direction: row-reverse;
+}
+
+.answer-container,
+.option-container {
+  padding: 5px 10px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .question-container {
+    margin-top: 16%;
+  }
+}
+
+.previous {
+  background-color: transparent;
+  color: #304673;
+  position: absolute;
+  z-index: 20;
+  margin-left: 1.3rem;
+  font-size: 30px;
+  padding: 0.1rem 0.8rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  height: 2.8rem;
+}
+.previous:hover {
+  background-color: #304673;
+  color: white;
+  transition: 0.3s ease;
+}
+.round {
+  border-radius: 40%;
+}
+.previous1 {
+  /* margin-top: 0.5rem;
+  margin-left: 0rem;
+  position: absolute;
+  z-index: 5000; */
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 30px;
+  font-weight: 600;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #304673;
+}
+
+.previous1:hover {
+  background-color: #304673;
+  color: white;
+  transition: 0.3s ease;
+}

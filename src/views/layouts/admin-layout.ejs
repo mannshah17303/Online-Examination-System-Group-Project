@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Examination Portal</title>
+    <link rel="stylesheet" href="/css/Admin Style/admin-layout.css" />
+  </head>
+  <body>
+    <div id="disableWholeScreen"></div>
+    <div class="wrapper">
+      <div class="sidebarDiv">
+        <%-include('../partials/admin-sidebar2.ejs') %>
+      </div>
+      <div class="mainDiv"><%- body %></div>
+    </div>
+
+    <dialog id="loaderDialog">
+      <div id="loader"></div>
+    </dialog>
+
+    <script src="/javascript/loader/loader.js"></script>
+
+    <!-- <script>
+             document.addEventListener("DOMContentLoaded", () => {
+                 addLoader();
+                 setTimeout(() => {
+                     removeLoader();
+                 }, 2000);
+             });
+        </script> -->
+  </body>
+</html>
